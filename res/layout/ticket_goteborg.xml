@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Price -->
+
+        <include
+            android:id="@+id/linearLayout2_ref"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/inc_price" >
+        </include>
+
+        <!-- Zone -->
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="Zon:"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/group_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/zone_gbg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Göteborg" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/zone_gbgp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Göteborg+" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/zone_gbgpp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Göteborg++" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/zone_gbgppp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Göteborg+++" >
+            </RadioButton>
+        </RadioGroup>
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/text_news" >
+        </include>
+    </LinearLayout>
+
+</ScrollView>

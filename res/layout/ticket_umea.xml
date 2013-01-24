@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/label_price"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/radio_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/price_child"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Barn (7 - 19 år)" />
+
+            <RadioButton
+                android:id="@+id/price_youth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ungdom (20 - 25 år, 67+ år)" />
+
+            <RadioButton
+                android:id="@+id/price_adult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vuxen (26 - 66 år)" />
+
+            <RadioButton
+                android:id="@+id/price_flying_bus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flygbuss" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="Telefonnummer:"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="+46" />
+
+            <EditText
+                android:id="@+id/phonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:text="712345678" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

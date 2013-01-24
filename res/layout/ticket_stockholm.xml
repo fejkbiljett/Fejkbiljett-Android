@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Price -->
+
+        <include
+            android:id="@+id/linearLayout2_ref"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/inc_price" >
+        </include>
+
+        <!-- Zone -->
+
+        <include
+            android:id="@+id/linearLayout4_ref"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/stockholm_zone" >
+        </include>
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/text_news" >
+        </include>
+    </LinearLayout>
+
+</ScrollView>

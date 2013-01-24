@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout4"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:text="@string/label_zone"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+    </TextView>
+
+    <CheckBox
+        android:id="@+id/zone_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="A" >
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/zone_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B" >
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/zone_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C" >
+    </CheckBox>
+    
+    <CheckBox
+        android:id="@+id/zone_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Länsgränspassage" >
+    </CheckBox>
+
+</LinearLayout>

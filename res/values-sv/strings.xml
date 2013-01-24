@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="price_full">Helt</string>
+	<string name="price_reduced">Reducerat</string>
+	
+	<string name="label_price">Pris:</string>
+	<string name="label_zone">Zon:</string>
+	
+	<string name="menu_create">Skapa</string>
+	<string name="menu_changecity">Byt stad</string>
+	<string name="menu_settings">Inställningar</string>
+	<string name="menu_overlay">Överdrag</string>
+	
+	<string name="settings_createsmsout">Skapa utgående SMS</string>
+	<string name="settings_createsmsout_summary">Lägger ett SMS i din utkorg som om du hade skickat det själv.</string>
+</resources>

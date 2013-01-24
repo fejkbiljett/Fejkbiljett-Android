@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:id="@+id/text_news"
+	android:layout_height="wrap_content"
+	android:textSize="12dip"
+	android:clickable="true"
+	android:onClick="click_news"
+></TextView>
+

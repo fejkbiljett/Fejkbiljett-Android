@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menuitem_create"
+        android:showAsAction="always"
+        android:title="@string/menu_create"/>
+    <item
+        android:id="@+id/menuitem_changecity"
+        android:title="@string/menu_changecity"/>
+    <item
+        android:id="@+id/menuitem_settings"
+        android:title="@string/menu_settings"/>
+
+</menu>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/inc_price" >
+        </include>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="Zon:"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/region_zone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/region_zone_urban"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:checked="true"
+                android:text="Tätort" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="1" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_2"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="2" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_2p"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="2 &amp; PLUS" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_12"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="1 &amp; 2" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_12p"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="1, 2 &amp; PLUS" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_p"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="PLUS" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_ulsl"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="UL/SL" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/region_zone_bike"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Cykel" >
+            </RadioButton>
+        </RadioGroup>
+    </LinearLayout>
+
+</ScrollView>
