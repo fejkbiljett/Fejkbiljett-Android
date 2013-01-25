@@ -1,4 +1,4 @@
-package com.iodgram.smsticket;
+package com.fejkbiljett.android;
 
 import java.util.ArrayList;
 import java.util.List;

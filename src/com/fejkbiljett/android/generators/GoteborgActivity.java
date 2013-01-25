@@ -1,13 +1,13 @@
-package com.iodgram.smsticket.generators;
+package com.fejkbiljett.android.generators;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.widget.RadioButton;
 
-import com.iodgram.smsticket.R;
-import com.iodgram.smsticket.tickets.GoteborgTicket;
-import com.iodgram.smsticket.tickets.Ticket;
+import com.fejkbiljett.android.R;
+import com.fejkbiljett.android.tickets.GoteborgTicket;
+import com.fejkbiljett.android.tickets.Ticket;
 
 public class GoteborgActivity extends TicketGeneratorActivity {
 	public void onCreate(Bundle savedInstanceState) {

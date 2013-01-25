@@ -1,4 +1,4 @@
-package com.iodgram.smsticket.tickets;
+package com.fejkbiljett.android.tickets;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,7 +6,7 @@ import java.util.Date;
 
 import android.os.Bundle;
 
-import com.iodgram.smsticket.Utils;
+import com.fejkbiljett.android.Utils;
 
 public class StockholmTicket extends Ticket {
 	private int[] gNumbers = new int[4];

@@ -1,4 +1,4 @@
-package com.iodgram.smsticket;
+package com.fejkbiljett.android;
 
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -11,12 +11,12 @@ import com.actionbarsherlock.app.SherlockListActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.iodgram.smsticket.generators.GoteborgActivity;
-import com.iodgram.smsticket.generators.StockholmActivity;
-import com.iodgram.smsticket.generators.UmeaActivity;
-import com.iodgram.smsticket.generators.UppsalaActivity;
+import com.fejkbiljett.android.generators.GoteborgActivity;
+import com.fejkbiljett.android.generators.StockholmActivity;
+import com.fejkbiljett.android.generators.UmeaActivity;
+import com.fejkbiljett.android.generators.UppsalaActivity;
 
-public class SMSTicketActivity extends SherlockListActivity {
+public class FejkbiljettActivity extends SherlockListActivity {
 	@SuppressWarnings("rawtypes")
 	Class[] classes = { StockholmActivity.class, UppsalaActivity.class,
 			GoteborgActivity.class, UmeaActivity.class, };

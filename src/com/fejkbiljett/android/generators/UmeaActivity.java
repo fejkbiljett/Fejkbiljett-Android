@@ -1,4 +1,4 @@
-package com.iodgram.smsticket.generators;
+package com.fejkbiljett.android.generators;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-import com.iodgram.smsticket.R;
-import com.iodgram.smsticket.tickets.Ticket;
-import com.iodgram.smsticket.tickets.UmeaTicket;
+import com.fejkbiljett.android.R;
+import com.fejkbiljett.android.tickets.Ticket;
+import com.fejkbiljett.android.tickets.UmeaTicket;
 
 public class UmeaActivity extends TicketGeneratorActivity {
 

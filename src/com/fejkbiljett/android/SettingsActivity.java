@@ -1,4 +1,4 @@
-package com.iodgram.smsticket;
+package com.fejkbiljett.android;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;

@@ -1,13 +1,13 @@
-package com.iodgram.smsticket.generators;
+package com.fejkbiljett.android.generators;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
-import com.iodgram.smsticket.FragmentAdapter;
-import com.iodgram.smsticket.R;
-import com.iodgram.smsticket.tickets.Ticket;
+import com.fejkbiljett.android.FragmentAdapter;
+import com.fejkbiljett.android.R;
+import com.fejkbiljett.android.tickets.Ticket;
 import com.viewpagerindicator.TabPageIndicator;
 
 public class UppsalaActivity extends TicketGeneratorActivity {

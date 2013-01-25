@@ -1,4 +1,4 @@
-package com.iodgram.smsticket.generators;
+package com.fejkbiljett.android.generators;
 
 import android.app.AlertDialog;
 import android.content.ContentValues;
@@ -19,11 +19,11 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.iodgram.smsticket.R;
-import com.iodgram.smsticket.SettingsActivity;
-import com.iodgram.smsticket.Utils;
-import com.iodgram.smsticket.tickets.Ticket;
-import com.iodgram.smsticket.tickets.Ticket.TicketException;
+import com.fejkbiljett.android.R;
+import com.fejkbiljett.android.SettingsActivity;
+import com.fejkbiljett.android.Utils;
+import com.fejkbiljett.android.tickets.Ticket;
+import com.fejkbiljett.android.tickets.Ticket.TicketException;
 
 public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 		implements ITicketGenerator {

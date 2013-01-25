@@ -1,4 +1,4 @@
-package com.iodgram.smsticket.generators;
+package com.fejkbiljett.android.generators;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.iodgram.smsticket.R;
-import com.iodgram.smsticket.tickets.Ticket;
-import com.iodgram.smsticket.tickets.UppsalaRegionTicket;
+import com.fejkbiljett.android.R;
+import com.fejkbiljett.android.tickets.Ticket;
+import com.fejkbiljett.android.tickets.UppsalaRegionTicket;
 
 public class UppsalaRegionFragment extends SherlockFragment implements
 		ITicketGenerator {
