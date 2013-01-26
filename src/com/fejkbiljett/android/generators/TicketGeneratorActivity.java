@@ -95,6 +95,9 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 
 		ActionBar ab = getSupportActionBar();
 		ab.setTitle(mCityName);
+
+		ab.setDisplayHomeAsUpEnabled(true);
+		ab.setDisplayShowHomeEnabled(true);
 	}
 
 	@Override
