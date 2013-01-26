@@ -65,12 +65,6 @@
                 android:text="Göteborg+++" >
             </RadioButton>
         </RadioGroup>
-
-        <include
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/text_news" >
-        </include>
     </LinearLayout>
 
 </ScrollView>
