@@ -24,7 +24,7 @@ import com.fejkbiljett.android.tickets.Ticket.TicketException;
 
 public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 		implements ITicketGenerator {
-	protected String mCityName = "SMS-Ticket";
+	protected String mCityName = "Fejkbiljett";
 
 	public void onGenerate() {
 		Ticket mTicket = getTicket();
