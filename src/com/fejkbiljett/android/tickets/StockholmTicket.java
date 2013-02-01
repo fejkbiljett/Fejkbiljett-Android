@@ -9,7 +9,7 @@ import android.os.Bundle;
 import com.fejkbiljett.android.Utils;
 
 public class StockholmTicket extends Ticket {
-	private int[] gNumbers = new int[4];
+	private int[] gNumbers = new int[3];
 
 	private int[] gPrices = new int[] { 36, 54, 72, 36 };
 
@@ -26,33 +26,33 @@ public class StockholmTicket extends Ticket {
 
 	@Override
 	public String getMessage() {
-		return sPriceType
-				+ "-"
-				+ mZones
-				+ " "
-				+ mTime
-				+ " "
-				+ gNumbers[2]
-				+ gNumbers[3]
-				+ "\n\n"
-				// + "+'" + Utils.generateRandomString() + "'+\n"
-				// + "+'" + Utils.generateRandomString() + "'+\n"
-				// + "+'" + Utils.generateRandomString() + "'+\n"
-				+ "SL biljett giltig till " + mTime + " " + mDate + "\n"
-				+ sPriceText + " " + iPrice + " kr ink 6% moms\n" + mTimeNow
-				+ mMonth + mDay + gNumbers[2] + (gNumbers[0] - 3) + gNumbers[3]
-				+ Utils.generateRandomString(7, true) + "\n"
-				+ "http://mobil.sl.se \n\n"
-				+ "1 februari ändras sms-biljetten \n\n"
-				+ "Från den 1 februari köper du din sms-biljett på ett nytt nummer. \n"
-				+ "Det nya numret är 076-7201010 \n\n"
-				+ "Innan ditt första köp på det nya numret måste du registrera dig \n"
-				+ "på sl.se/sms. Sedan beställer du precis som vanligt. Ändringen \n"
-				+ "görs för att leva upp till nya regler och ett nytt system. \n\n"
-				+ "Läs gärna mer på http://sl.se Tack!";
-				
-				
-				
+		return
+			sPriceType + "-" + mZones + " " + mTime + " "
+			+ gNumbers[0] + gNumbers[1] + gNumbers[2] + "\n\n"
+
+			+ "E" + generateRandomAEOXString() + "\n"
+			+ "E" + generateRandomAEOXString() + "\n"
+			+ "E" + generateRandomAEOXString() + "\n"
+			+ "EEEEEEEEEE\n\n"
+
+			+ "SL biljett giltig till " + mTime + " " + mDate + "\n"
+			+ sPriceText + " " + iPrice + " kr ink 6% moms\n"
+
+			+ Utils.generateRandomString(11, false)
+			+ gNumbers[0] + gNumbers[1] + gNumbers[2] + "\n"
+			+ "m.sl.se";
+	}
+
+	protected String generateRandomAEOXString()
+	{
+		String string = "";
+		String[] letters = {"A", "E", "O", "X"};
+
+		for (int i = 0; i < 9; i++) {
+			string += letters[(int) Math.floor(Math.random() * letters.length)];
+		}
+
+		return string;
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class StockholmTicket extends Ticket {
 
 	@Override
 	public String getNumberOut() {
-		return "72150";
+		return "0767201010";
 	}
 
 	@Override
@@ -120,7 +120,7 @@ public class StockholmTicket extends Ticket {
 
 		if (mReduced) {
 			sPriceType = "R";
-			sPriceText = "RED PRIS";
+			sPriceText = "Red pris";
 			iPrice = (int) Math.ceil(iPrice * gPriceMod);
 		} else {
 			sPriceType = "H";
@@ -129,10 +129,9 @@ public class StockholmTicket extends Ticket {
 	}
 
 	private String generateSenderNumber() {
-		gNumbers[0] = (int) Math.round(Math.random() * 6) + 3;
-		String number = getNumberOut() + gNumbers[0];
+		String number = "SL";
 
-		for (int i = 1; i <= 3; i++) {
+		for (int i = 0; i < 3; i++) {
 			gNumbers[i] = (int) Math.round(Math.random() * 9);
 			number += gNumbers[i];
 		}
