@@ -36,7 +36,8 @@ public class UppsalaRegionFragment extends SherlockFragment implements
 		int zones[] = { R.id.region_zone_urban, R.id.region_zone_1,
 				R.id.region_zone_2, R.id.region_zone_2p, R.id.region_zone_12,
 				R.id.region_zone_12p, R.id.region_zone_p,
-				R.id.region_zone_ulsl, R.id.region_zone_bike, };
+				R.id.region_zone_ulsl, R.id.region_zone_bike, R.id.region_zone_ul12psl, R.id.region_zone_ulslc, R.id.region_zone_ul2slc,
+				R.id.region_zone_ul2sl};
 		int zone = 0;
 
 		for (int i = 0; i < zones.length; i++) {
