@@ -21,36 +21,23 @@ public class UppsalaRegionTicket extends Ticket {
 	String mTime, mMonth, mDay;
 	String mCode = "";
 	String mPriceType, mZoneOut, mZoneType, mZon = "UL";
-
+	String uCode, uAEOX = "";
 	int mPrice;
 
+			
 	@Override
 	public String getMessage() {
 		return "" + gNumbers[0] + gNumbers[1] + gNumbers[2] + " UL\n\n"
 				+ mZoneType + " " + mPriceType + " " + "Giltig till "
 				+ mValidTime + " " + mValidDate + "\n" + mZon + "\n\n" + mPrice
 				+ " SEK (6% MOMS) "
-				
-				+ Utils.generateRandomString(11, false)
-				+ gNumbers[0] + gNumbers[1] + gNumbers[2] + "\n\n"
-				+ "E" + generateRandomAEOXString() + "\n"
-				+ "E" + generateRandomAEOXString() + "\n"
-				+ "E" + generateRandomAEOXString() + "\n"
+				+ uCode + "\n\n"
+				+ "E" + uAEOX.substring(0, 9) + "\n"
+				+ "E" + uAEOX.substring(9, 18) + "\n"
+				+ "E" + uAEOX.substring(18, 24) + Utils.getRandChars("AEOX", 3) + "\n"
 				+ "EEEEEEEEEE";
 	}
 
-	protected String generateRandomAEOXString()
-	{
-		String string = "";
-		String[] letters = {"A", "E", "O", "X"};
-
-		for (int i = 0; i < 9; i++) {
-			string += letters[(int) Math.floor(Math.random() * letters.length)];
-		}
-
-		return string;
-	}
-	
 	@Override
 	public String getSender() {
 		return mSender;
@@ -188,6 +175,11 @@ public class UppsalaRegionTicket extends Ticket {
 		cal.add(Calendar.MINUTE, iExpireTime);
 		mValidTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
 		mValidDate = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
+		
+		uCode = Utils.generateRandomString(12, false)
+			+ gNumbers[0] + gNumbers[1] + gNumbers[2];
+			String hexCode = Utils.decToHex(uCode);
+			uAEOX = Utils.hexToAEOX(hexCode);
 
 	}
 

@@ -57,4 +57,35 @@ public class Utils {
 
 		return version;
 	}
+	
+	public static String[] hexAEOX = { "OO", "OX", "OA", "OE", "XO", "XX", "XA",
+		"XE", "AO", "AX", "AA", "AE", "EO", "EX", "EA", "EE"
+	};
+
+	public static String getRandChars(String chars, int length) {
+		String randChars = "";
+		char[] charArray = chars.toCharArray();
+		
+		for (int i = 0; i < length; i++) {
+			randChars += charArray[(int) Math.floor(Math.random() * charArray.length)];
+		}
+		return randChars;
+	}
+	
+	public static String decToHex(String dec) {
+		long i = Long.parseLong(dec);
+		String hex = Long.toHexString(i);
+		return hex;
+	}
+	
+	public static String hexToAEOX(String hex) {
+		String AEOX = "";
+		for (int i = 0; i < hex.length(); i++) {
+			char hexChar = hex.charAt(i);
+			String sHex = Character.toString(hexChar);
+			AEOX += hexAEOX[Integer.parseInt(sHex, 16)];
+		}
+		return AEOX;
+	}
+	
 }

@@ -27,7 +27,7 @@ public class UppsalaActivity extends TicketGeneratorActivity {
 				getSupportFragmentManager());
 		mPager.setAdapter(mAdapter);
 
-		/*mAdapter.addPage("Stadsbussar", new UppsalaFragment());*/
+		mAdapter.addPage("Stadsbussar", new UppsalaFragment());
 		mAdapter.addPage("Regiontrafik", new UppsalaRegionFragment());
 
 		TabPageIndicator pi = (TabPageIndicator) findViewById(R.id.indicator);
