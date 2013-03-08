@@ -52,7 +52,7 @@
                 android:text="2" >
             </RadioButton>
 
-            <RadioButton
+       		<RadioButton
                 android:id="@+id/region_zone_2p"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -63,28 +63,28 @@
                 android:id="@+id/region_zone_12"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="1 &amp; 2" >
+                android:text="Län" >
             </RadioButton>
 
-            <RadioButton
+      		<RadioButton
                 android:id="@+id/region_zone_12p"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="1, 2 &amp; PLUS" >
+                android:text="Län PLUS" >
             </RadioButton>
 
             <RadioButton
                 android:id="@+id/region_zone_p"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="PLUS" >
+                android:text="PLUS zontillägg" >
             </RadioButton>
 
             <RadioButton
                 android:id="@+id/region_zone_ulsl"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="UL/SL" >
+                android:text="UL + SL Län" >
             </RadioButton>
 
             <RadioButton
@@ -92,6 +92,34 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="Cykel" >
+            </RadioButton>
+            
+       		<RadioButton
+                android:id="@+id/region_zone_ul12psl"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="UL Län PLUS + SL Län" >
+            </RadioButton>
+            
+         	<RadioButton
+                android:id="@+id/region_zone_ulslc"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="UL Län + SL zon C Nord" >
+            </RadioButton>
+            
+            <RadioButton
+                android:id="@+id/region_zone_ul2slc"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="UL zon 2 + SL zon C Nord" >
+            </RadioButton>
+            
+            <RadioButton
+                android:id="@+id/region_zone_ul2sl"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="UL zon 2 + SL Län" >
             </RadioButton>
         </RadioGroup>
     </LinearLayout>

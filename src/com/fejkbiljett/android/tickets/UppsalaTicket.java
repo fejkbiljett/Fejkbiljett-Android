@@ -9,26 +9,31 @@ import android.os.Bundle;
 import com.fejkbiljett.android.Utils;
 
 public class UppsalaTicket extends Ticket {
-	private int[] gNumbers = new int[4];
+	private int[] gNumbers = new int[3];
 
-	final char[] aChars = { '+', '-', '/', '*' };
-
-	protected String mSender;
-
+	protected String mSender, uCode, uAEOX = "";;
+	
+	
 	protected String mPriceType, mValidDate, mValidTime, mTime, mDay, mCode = "";
 	protected int mPrice;
 
 	protected boolean mReduced;
 
+	
+	
 	@Override
 	public String getMessage() {
-		return "" + gNumbers[1] + gNumbers[2]
-				+ aChars[(int) Math.floor(Math.random() * 4)] + " "
-				+ mPriceType + " UPPSALA Stadstrafik. " + "Giltig till "
-				+ mValidDate + " kl. " + mValidTime + ". " + "Pris: " + mPrice
-				+ " kr (inkl. 6% moms) " + mTime
-				+ (Math.random() >= 0.5 ? "e" : "m") + mDay + mCode;
+		return "" + gNumbers[0] + gNumbers[1] + gNumbers[2] + " UL\n\n"
+				+ "U" + (mReduced ? "U" : "V") + " " + mPriceType + " " + "Giltig till "
+				+ mValidTime + " " + mValidDate + "\n"	+ "Stadsbuss" + "\n\n" + mPrice
+				+ " SEK (6% MOMS) "
+				+ uCode + "\n\n"
+				+ "E" + uAEOX.substring(0, 9) + "\n"
+				+ "E" + uAEOX.substring(9, 18) + "\n"
+				+ "E" + uAEOX.substring(18, 24) + Utils.getRandChars("AEOX", 3) + "\n"
+				+ "EEEEEEEEEE";
 	}
+	
 
 	@Override
 	public String getSender() {
@@ -42,7 +47,7 @@ public class UppsalaTicket extends Ticket {
 
 	@Override
 	public String getNumberOut() {
-		return "72472";
+		return "0704202222";
 	}
 
 	@Override
@@ -71,27 +76,20 @@ public class UppsalaTicket extends Ticket {
 		mValidTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
 		mValidDate = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
 
-		for (int i = 0; i < 2; i++) {
-			mCode += Utils.gAlphabet[(int) Math.floor(Math.random() * 26)]
-					.toLowerCase();
-		}
-		for (int i = 0; i < 4; i++) {
-			mCode += Math.round(Math.random() * 9);
-		}
-		mCode += Utils.gAlphabet[(int) Math.floor(Math.random() * 26)];
-		for (int i = 0; i < 6; i++) {
-			mCode += Math.round(Math.random() * 9);
-		}
+		uCode = Utils.generateRandomString(12, false)
+			+ gNumbers[0] + gNumbers[1] + gNumbers[2];
+			String hexCode = Utils.decToHex(uCode);
+			uAEOX = Utils.hexToAEOX(hexCode);
 	}
 
 	private String generateSenderNumber() {
-		String number = getNumberOut();
+		String number = "UL";
 
 		for (int i = 0; i < 3; i++) {
 			gNumbers[i] = (int) Math.round(Math.random() * 9);
 			number += gNumbers[i];
 		}
-
-		return number;
+		
+	return number;
 	}
 }
