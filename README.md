@@ -8,12 +8,10 @@ Fejkbiljett är en Android-applikation för att skapa textmeddelanden i din mobi
 Ladda ned
 ---------
 
-**Fejkbiljett 0.1** går att ladda ned här:
+**Fejkbiljett 0.2** går att ladda ned här:
 
-http://filesmelt.com/dl/Fejkbiljett_v0-1.apk  
-http://www.uploadmb.com/dw.php?id=1359684523  
-http://speedy.sh/DZF3y/Fejkbiljett-v0-1.apk  
-http://depositfiles.com/files/ri7ndd7jp
+http://filesmelt.com/dl/Fejkbiljett_v0-21.apk
+http://www.uploadmb.com/dw.php?id=1362753235
 
-*MD5: 58133b5ac17a8ba7e6983dab0b30498b*  
-*SHA1: df88dcaa6bc804c17d5b7832678169a4699da72c*
+*MD5: 60A26BEE7B18073AC73FABCF8D307BAA*  
+*SHA1: D84368A6226F06B7EF440B4A42F9B7F70389D224*

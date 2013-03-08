@@ -21,26 +21,26 @@ public class StockholmTicket extends Ticket {
 
 	protected String mZones = "", mTimeNow, mTime, mDay, mDate, mMonth,
 			sPriceText, sPriceType;
+	protected String sCode, sAEOX = "";
 
 	protected int iPrice;
 
 	@Override
 	public String getMessage() {
 		return
-			sPriceType + "-" + mZones + " " + mTime + " "
-			+ gNumbers[0] + gNumbers[1] + gNumbers[2] + "\n\n"
+				sPriceType + "-" + mZones + " " + mTime + " "
+				+ gNumbers[0] + gNumbers[1] + gNumbers[2] + "\n\n"
 
-			+ "E" + generateRandomAEOXString() + "\n"
-			+ "E" + generateRandomAEOXString() + "\n"
-			+ "E" + generateRandomAEOXString() + "\n"
-			+ "EEEEEEEEEE\n\n"
-
-			+ "SL biljett giltig till " + mTime + " " + mDate + "\n"
-			+ sPriceText + " " + iPrice + " kr ink 6% moms\n"
-
-			+ Utils.generateRandomString(11, false)
-			+ gNumbers[0] + gNumbers[1] + gNumbers[2] + "\n"
-			+ "m.sl.se";
+				+ "E" + sAEOX.substring(0, 9) + "\n"
+				+ "E" + sAEOX.substring(9, 18) + "\n"
+				+ "E" + sAEOX.substring(18, 24) + Utils.getRandChars("AEOX", 3) + "\n"
+				+ "EEEEEEEEEE\n\n"
+				
+				+ "SL biljett giltig till " + mTime + " " + mDate + "\n"
+				+ sPriceText + " " + iPrice + " kr ink 6% moms\n"
+				
+				+ sCode + "\n"
+				+ "m.sl.se";
 	}
 
 	protected String generateRandomAEOXString()
@@ -125,6 +125,12 @@ public class StockholmTicket extends Ticket {
 		} else {
 			sPriceType = "H";
 			sPriceText = "Helt pris";
+			
+			sCode = Utils.generateRandomString(11, false)
+					+ gNumbers[0] + gNumbers[1] + gNumbers[2];
+				String hexCode = Utils.decToHex(sCode);
+				sAEOX = Utils.hexToAEOX(hexCode);
+			
 		}
 	}
 

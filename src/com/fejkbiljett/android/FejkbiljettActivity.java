@@ -23,7 +23,7 @@ public class FejkbiljettActivity extends SherlockListActivity {
 	
 
 	Integer[] images = new Integer[] { R.drawable.stockholm,
-			R.drawable.uppsala, R.drawable.goteborg, R.drawable.umea };
+			R.drawable.uppsala };
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
