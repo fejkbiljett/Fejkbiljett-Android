@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- Price -->
+
+        <include
+            android:id="@+id/linearLayout2_ref"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/inc_price" >
+        </include>
+
+        <!-- Zone
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="Zones:"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+
+        <RadioGroup
+            android:id="@+id/group_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/zone_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="1 zone" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/zone_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 zones" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/zone_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 zones" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/zone_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 zones" >
+            </RadioButton>
+            
+            <RadioButton
+                android:id="@+id/zone_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 zones" >
+            </RadioButton>
+            
+            <RadioButton
+                android:id="@+id/zone_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6 zones" >
+            </RadioButton>
+            
+            <RadioButton
+                android:id="@+id/zone_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7 zones+" >
+            </RadioButton>
+        </RadioGroup>
+        -->
+        
+    </LinearLayout>
+
+</ScrollView>

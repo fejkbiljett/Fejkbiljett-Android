@@ -30,6 +30,7 @@
         <activity android:name=".generators.UppsalaActivity" />
         <activity android:name=".generators.GoteborgActivity" />
         <activity android:name=".generators.UmeaActivity" />
-    </application>
+		<activity android:name=".generators.JonkopingActivity" />
+        </application>
 
 </manifest>
