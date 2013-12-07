@@ -6,5 +6,9 @@
         android:key="create_sms_out"
         android:summary="@string/settings_createsmsout_summary"
         android:title="@string/settings_createsmsout" />
+    <Preference
+        android:key="sms_permission"
+        android:summary="@string/settings_smspermission_summary"
+        android:title="@string/settings_smspermission" />
 
 </PreferenceScreen>

@@ -10,7 +10,10 @@
     <string name="menu_changecity">Change city</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_overlay">Overlay</string>
+    
     <string name="settings_createsmsout">Create outgoing SMS</string>
     <string name="settings_createsmsout_summary">Places an SMS in your outbox as if you have sent it yourself.</string>
-
+    
+	<string name="settings_smspermission">Give write SMS permission</string>
+	<string name="settings_smspermission_summary">As of Android 4.4 (KitKat) Fejkbiljett needs permission to write to SMS store.</string>
 </resources>
