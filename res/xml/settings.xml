@@ -6,6 +6,11 @@
         android:key="create_sms_out"
         android:summary="@string/settings_createsmsout_summary"
         android:title="@string/settings_createsmsout" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="open_sms_on_create"
+        android:summary="@string/settings_opensmsoncreate_summary"
+        android:title="@string/settings_opensmsoncreate" />
     <Preference
         android:key="sms_permission"
         android:summary="@string/settings_smspermission_summary"

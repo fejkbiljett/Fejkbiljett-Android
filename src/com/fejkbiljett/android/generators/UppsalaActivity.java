@@ -33,9 +33,9 @@ public class UppsalaActivity extends TicketGeneratorActivity {
 		TabPageIndicator pi = (TabPageIndicator) findViewById(R.id.indicator);
 		pi.setViewPager(mPager);
 
+		/*
 		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
 
-		/*
 		if (prefs.getBoolean("price_reduced", false)) {
 			((RadioButton) findViewById(R.id.price_reduced)).setChecked(true);
 		}

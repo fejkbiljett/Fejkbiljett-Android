@@ -3,7 +3,6 @@ package com.fejkbiljett.android.generators;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.widget.CheckBox;
 import android.widget.RadioButton;
 
 import com.fejkbiljett.android.R;

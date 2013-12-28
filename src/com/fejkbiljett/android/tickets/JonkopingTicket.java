@@ -57,7 +57,6 @@ public class JonkopingTicket extends Ticket {
 		mSender = generateSenderNumber();
 
 		Calendar cal = Calendar.getInstance();
-		Date now = new Date();
 
 		mReduced = data.getBoolean("price_reduced");
 		mZones = data.getInt("zones");

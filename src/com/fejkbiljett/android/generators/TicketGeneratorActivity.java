@@ -1,15 +1,11 @@
 package com.fejkbiljett.android.generators;
 
-import android.app.AlertDialog;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -54,6 +50,9 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 
 			getContentResolver()
 					.insert(Uri.parse("content://sms/sent"), values);
+			
+			//Fix for incorrect thread timestamp
+			getContentResolver().delete(Uri.parse("content://sms/conversations/-1"), null, null);
 		}
 
 		String message = mTicket.getMessage();
@@ -64,11 +63,19 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 		values.put("body", message);
 		getContentResolver().insert(Uri.parse("content://sms/inbox"), values);
 
-		Intent smsIntent = new Intent(Intent.ACTION_MAIN);
-		smsIntent.addCategory(Intent.CATEGORY_DEFAULT);
-		smsIntent.setType("vnd.android-dir/mms-sms");
-		startActivity(smsIntent);
-	}
+		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				"open_sms_on_create", false)) {
+			Intent smsIntent = new Intent(Intent.ACTION_MAIN);
+			smsIntent.addCategory(Intent.CATEGORY_DEFAULT);
+			smsIntent.setType("vnd.android-dir/mms-sms");
+			startActivity(smsIntent);
+		}
+		
+		//Notification to user
+		Toast.makeText(getApplicationContext(), R.string.ticket_created, Toast.LENGTH_SHORT).show();
+		
+		finish(); //exit
+		}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
