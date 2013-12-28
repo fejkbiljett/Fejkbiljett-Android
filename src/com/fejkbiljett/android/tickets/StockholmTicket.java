@@ -128,7 +128,7 @@ public class StockholmTicket extends Ticket {
 			
 			sCode = Utils.generateRandomString(11, false)
 					+ gNumbers[0] + gNumbers[1] + gNumbers[2];
-				String hexCode = Utils.decToHex(sCode);
+				String hexCode = Utils.decToHexLen(sCode, 12);
 				sAEOX = Utils.hexToAEOX(hexCode);
 			
 		}

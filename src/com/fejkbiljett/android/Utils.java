@@ -28,6 +28,7 @@ public class Utils {
 		return letters;
 	}
 
+
 	public static void showAlert(Activity activity, String title, String message) {
 		Utils.showAlert(activity, title, message, "OK!");
 	}
@@ -73,8 +74,23 @@ public class Utils {
 	}
 	
 	public static String decToHex(String dec) {
+		return decToHexLen(dec, 0);
+	}
+	
+	public static String decToHexLen(String dec, int len) {
 		long i = Long.parseLong(dec);
 		String hex = Long.toHexString(i);
+		
+		//Expect a certain length of the hex-string
+		if(len > 0) {
+			if(hex.length() > len) {
+				throw new StringIndexOutOfBoundsException();
+			}
+		
+		    while(hex.length() < len) {
+				hex = "0" + hex;
+			}
+		}
 		return hex;
 	}
 	
