@@ -6,26 +6,16 @@ import android.content.DialogInterface;
 import android.content.pm.PackageManager.NameNotFoundException;
 
 public class Utils {
-	public static String[] gAlphabet = { "A", "B", "C", "D", "E", "F", "G",
-			"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
-			"U", "V", "W", "X", "Y", "Z" };
+
 
 	public static String generateRandomString() {
 		return Utils.generateRandomString(9, false);
 	}
 
 	public static String generateRandomString(int length, boolean bLetters) {
-		String letters = "";
-
-		for (int i = 0; i < length; i++) {
-			if (bLetters == true && Math.random() > 0.5) {
-				letters += gAlphabet[(int) Math.floor(Math.random() * 26)];
-			} else {
-				letters += Math.round(Math.random() * 9);
-			}
-		}
-
-		return letters;
+		return bLetters ? 
+				getRandChars("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", length) : 
+					getRandChars("0123456789", length);
 	}
 
 
@@ -59,9 +49,10 @@ public class Utils {
 		return version;
 	}
 	
-	public static String[] hexAEOX = { "OO", "OX", "OA", "OE", "XO", "XX", "XA",
-		"XE", "AO", "AX", "AA", "AE", "EO", "EX", "EA", "EE"
-	};
+	public static String[] hexAEOX = { "OO", "OX", "OA", "OE", 
+		                               "XO", "XX", "XA", "XE", 
+		                               "AO", "AX", "AA", "AE", 
+		                               "EO", "EX", "EA", "EE" };
 
 	public static String getRandChars(String chars, int length) {
 		String randChars = "";
