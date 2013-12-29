@@ -51,8 +51,17 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 			getContentResolver()
 					.insert(Uri.parse("content://sms/sent"), values);
 			
-			//Fix for incorrect thread timestamp
-			getContentResolver().delete(Uri.parse("content://sms/conversations/-1"), null, null);
+			/* 
+			 * Fix for incorrect thread timestamp.
+			 * "when you delete an SMS from a con­ver­sa­tion, 
+			 * it has to go up­date the time­stamp based on the most re­cent mes­sage."
+			 *  -http://www.tbray.org/ongoing/When/201x/2012/02/29/Undocumentedness#p-3
+			 */
+			
+			//insert duplicate message, and delete it.
+			getContentResolver().delete(
+					getContentResolver().insert(
+							Uri.parse("content://sms/sent"), values), null, null);
 		}
 
 		String message = mTicket.getMessage();
