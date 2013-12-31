@@ -19,7 +19,7 @@ public class StockholmTicket extends Ticket {
 
 	protected boolean mReduced;
 
-	protected String mZones = "", mTimeNow, mTime, mDay, mDate, mMonth,
+	protected String mZones = "", mTimeNow, mTime, mDay, mDate,
 			sPriceText, sPriceType;
 	protected String sCode, sAEOX = "";
 
@@ -41,18 +41,6 @@ public class StockholmTicket extends Ticket {
 				
 				+ sCode + "\n"
 				+ "m.sl.se";
-	}
-
-	protected String generateRandomAEOXString()
-	{
-		String string = "";
-		String[] letters = {"A", "E", "O", "X"};
-
-		for (int i = 0; i < 9; i++) {
-			string += letters[(int) Math.floor(Math.random() * letters.length)];
-		}
-
-		return string;
 	}
 
 	@Override
@@ -104,7 +92,6 @@ public class StockholmTicket extends Ticket {
 		// Date and time
 		mTimeNow = new SimpleDateFormat("HHmm").format(now.getTime());
 		mDay = new SimpleDateFormat("dd").format(now.getTime());
-		mMonth = Utils.gAlphabet[cal.get(Calendar.MONTH)];
 
 		cal.add(Calendar.MINUTE, (twohours ? 120 : 75));
 		mTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
@@ -125,14 +112,14 @@ public class StockholmTicket extends Ticket {
 		} else {
 			sPriceType = "H";
 			sPriceText = "Helt pris";
-			
-			sCode = Utils.generateRandomString(11, false)
-					+ gNumbers[0] + gNumbers[1] + gNumbers[2];
-				String hexCode = Utils.decToHexLen(sCode, 12);
-				sAEOX = Utils.hexToAEOX(hexCode);
+		}
+		
+		sCode = Utils.generateRandomString(11, false)
+				+ gNumbers[0] + gNumbers[1] + gNumbers[2];
+		String hexCode = Utils.decToHexLen(sCode, 12);
+		sAEOX = Utils.hexToAEOX(hexCode);
 			
 		}
-	}
 
 	private String generateSenderNumber() {
 		String number = "SL";

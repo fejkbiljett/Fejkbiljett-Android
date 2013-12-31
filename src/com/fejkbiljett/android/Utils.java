@@ -1,12 +1,15 @@
 package com.fejkbiljett.android;
 
+import java.util.Arrays;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager.NameNotFoundException;
 
 public class Utils {
-
+	public static String gAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	public static String gNumbers = "0123456789";
 
 	public static String generateRandomString() {
 		return Utils.generateRandomString(9, false);
@@ -14,8 +17,8 @@ public class Utils {
 
 	public static String generateRandomString(int length, boolean bLetters) {
 		return bLetters ? 
-				getRandChars("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", length) : 
-					getRandChars("0123456789", length);
+				getRandChars(gAlphabet+gNumbers, length) : 
+					getRandChars(gNumbers, length);
 	}
 
 
@@ -69,9 +72,8 @@ public class Utils {
 	}
 	
 	public static String decToHexLen(String dec, int len) {
-		long i = Long.parseLong(dec);
-		String hex = Long.toHexString(i);
-		
+		String hex = Long.toHexString((Long.parseLong(dec)));
+
 		//Expect a certain length of the hex-string
 		if(len > 0) {
 			if(hex.length() > len) {
@@ -88,11 +90,22 @@ public class Utils {
 	public static String hexToAEOX(String hex) {
 		String AEOX = "";
 		for (int i = 0; i < hex.length(); i++) {
-			char hexChar = hex.charAt(i);
-			String sHex = Character.toString(hexChar);
-			AEOX += hexAEOX[Integer.parseInt(sHex, 16)];
+			AEOX += hexAEOX[Integer.parseInt(String.valueOf(hex.charAt(i)), 16)];
 		}
 		return AEOX;
 	}
+	
+	/* For test purposes *
+	public static String aeoxToHex(String aeox) {
+		String hex = "";
+		for (int i=0; i<aeox.length(); i=i+2) {
+			for (int j=0; i<hexAEOX.length; j++) {
+				if (aeox.substring(i, i+1).equals(hexAEOX[j]))
+						hex += hexAEOX[j];
+			}
+		}
+		return hex;
+	}
+	*/
 	
 }

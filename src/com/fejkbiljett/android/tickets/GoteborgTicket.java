@@ -91,7 +91,7 @@ public class GoteborgTicket extends Ticket {
 		// Date and time
 		sTime = new SimpleDateFormat("HHmm").format(now.getTime());
 		sDay = new SimpleDateFormat("dd").format(now.getTime());
-		sMonth = Utils.gAlphabet[cal.get(Calendar.MONTH)];
+		sMonth = String.valueOf( Utils.gAlphabet.toCharArray()[cal.get(Calendar.MONTH)] );
 
 		// Tickets are valid for 90 or 180 minutes
 		if (sZone.equals("")) {
@@ -102,14 +102,9 @@ public class GoteborgTicket extends Ticket {
 		sValidTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
 		sValidDate = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
 
-		for (int i = 0; i < 3; i++) {
-			sCode += Utils.gAlphabet[(int) Math.floor(Math.random() * 26)]
-					.toLowerCase();
-		}
-		for (int i = 0; i < 4; i++) {
-			sCode += Math.round(Math.random() * 9);
-		}
-		sCode += Utils.gAlphabet[(int) Math.floor(Math.random() * 26)];
+		sCode += Utils.getRandChars(Utils.gAlphabet.toLowerCase(), 3);
+		sCode += Utils.generateRandomString(4, false);
+		sCode += Utils.getRandChars(Utils.gAlphabet, 1);
 		sCode += Integer
 				.toString((int) ((Math.random() * (996871 - 962139)) + 962139));
 	}
@@ -117,11 +112,8 @@ public class GoteborgTicket extends Ticket {
 	private String generateSenderNumber() {
 		String number = "72450";
 
-		for (int i = 0; i < 4; i++) {
-			gNumbers[i] = (int) Math.round(Math.random() * 9);
-			number += gNumbers[i];
-		}
-
+		number += Utils.generateRandomString(4, false);
+		
 		return number;
 	}
 }

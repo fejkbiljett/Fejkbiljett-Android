@@ -18,7 +18,7 @@ public class UppsalaRegionTicket extends Ticket {
 	String mSender;
 
 	String mValidDate, mValidTime;
-	String mTime, mMonth, mDay;
+	String mTime, mDay;
 	String mCode = "";
 	String mPriceType, mZoneOut, mZoneType, mZon = "UL";
 	String uCode, uAEOX = "";
@@ -170,7 +170,6 @@ public class UppsalaRegionTicket extends Ticket {
 		// Date and time
 		mTime = new SimpleDateFormat("HHmm").format(now.getTime());
 		mDay = new SimpleDateFormat("dd").format(now.getTime());
-		mMonth = Utils.gAlphabet[cal.get(Calendar.MONTH)];
 
 		cal.add(Calendar.MINUTE, iExpireTime);
 		mValidTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
