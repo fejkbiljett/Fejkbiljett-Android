@@ -93,17 +93,15 @@ public class Utils {
 		return AEOX;
 	}
 	
-	/* For test purposes *
+	/* For test purposes */
 	public static String aeoxToHex(String aeox) {
 		String hex = "";
 		for (int i=0; i<aeox.length(); i=i+2) {
-			for (int j=0; i<hexAEOX.length; j++) {
-				if (aeox.substring(i, i+1).equals(hexAEOX[j]))
-						hex += hexAEOX[j];
+			for (int j=0; j<hexAEOX.length; j++) {
+				if (aeox.substring(i, i+2).equals(hexAEOX[j]))
+						hex += (gNumbers+gAlphabet).charAt(j);
 			}
 		}
 		return hex;
-	}
-	*/
-	
+	}	
 }
