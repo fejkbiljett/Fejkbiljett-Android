@@ -37,8 +37,7 @@ public class StockholmTicket extends Ticket {
 				+ "EEEEEEEEEE\n\n"
 				
 				+ "SL biljett giltig till " + mTime + " " + mDate + "\n"
-				+ sPriceText + " " + iPrice + " kr ink 6% moms\n"
-				
+				+ sPriceText + " " + iPrice + " kr ink 6% moms\n"				
 				+ sCode + "\n"
 				+ "m.sl.se";
 	}
@@ -79,7 +78,9 @@ public class StockholmTicket extends Ticket {
 		if (mZones.contentEquals("")) {
 			throw new TicketException("Fyll i vilka zoner du vill åka i.");
 		} else if (mZones.startsWith("AC")) {
-			mZones = "ABC" + (data.getBoolean("zone_l") ? "L" : null);
+			//Don't do more than the user asks.
+			//mZones = "ABC" + (data.getBoolean("zone_l") ? "L" : "");
+			throw new TicketException("Felaktig zonkombination.");
 		}
 
 		if (mZones.equals("AL") || mZones.equals("BL") || mZones.equals("ABL")) {
@@ -87,7 +88,7 @@ public class StockholmTicket extends Ticket {
 					"Ogiltig kombination med Länsgränspassage.");
 		}
 
-		boolean twohours = mZones.startsWith("ABC") || mZones.equals("L");
+		boolean twohours = mZones.startsWith("ABC") || mZones.endsWith("L");
 
 		// Date and time
 		mTimeNow = new SimpleDateFormat("HHmm").format(now.getTime());
