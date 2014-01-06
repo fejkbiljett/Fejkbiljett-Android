@@ -2,8 +2,6 @@ package com.fejkbiljett.android.tickets;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-
 import android.os.Bundle;
 
 import com.fejkbiljett.android.Utils;

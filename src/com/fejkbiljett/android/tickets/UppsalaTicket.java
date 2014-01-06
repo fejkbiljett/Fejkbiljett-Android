@@ -51,8 +51,7 @@ public class UppsalaTicket extends Ticket {
 	@Override
 	public void create(Bundle data) throws TicketException {
 		Calendar cal = Calendar.getInstance();
-		Date now = new Date();
-
+		
 		mReduced = data.getBoolean("price_reduced");
 
 		if (mReduced) {
