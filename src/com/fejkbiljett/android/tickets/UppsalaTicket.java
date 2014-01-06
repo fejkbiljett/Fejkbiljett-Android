@@ -12,7 +12,7 @@ public class UppsalaTicket extends Ticket {
 	protected String mSender, uCode, uCodeTail, uScanCode= "";;
 	
 	
-	protected String mPriceType, mValidDate, mValidTime, mTime, mDay, mCode = "";
+	protected String mPriceType, mValidDate, mValidTime = "";
 	protected int mPrice;
 
 	protected boolean mReduced;
@@ -62,11 +62,6 @@ public class UppsalaTicket extends Ticket {
 			mPriceType = "VUXEN";
 			mPrice = 25;
 		}
-
-		// Date and time
-		mTime = new SimpleDateFormat("HHmm").format(now.getTime());
-		mDay = new SimpleDateFormat("dd").format(now.getTime());
-		// String sMonth = Utils.gAlphabet[ cal.get(Calendar.MONTH) ];
 
 		cal.add(Calendar.MINUTE, 90);
 		mValidTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
