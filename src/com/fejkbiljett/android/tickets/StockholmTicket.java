@@ -9,8 +9,6 @@ import android.os.Bundle;
 import com.fejkbiljett.android.Utils;
 
 public class StockholmTicket extends Ticket {
-	private int[] gNumbers = new int[3];
-
 	private int[] gPrices = new int[] { 36, 54, 72, 36 };
 
 	private double gPriceMod = 0.55;
@@ -21,20 +19,16 @@ public class StockholmTicket extends Ticket {
 
 	protected String mZones = "", mTimeNow, mTime, mDay, mDate,
 			sPriceText, sPriceType;
-	protected String sCode, sAEOX = "";
+	protected String sCode, sCodeTail, sScanCode = "";
 
 	protected int iPrice;
 
 	@Override
 	public String getMessage() {
 		return
-				sPriceType + "-" + mZones + " " + mTime + " "
-				+ gNumbers[0] + gNumbers[1] + gNumbers[2] + "\n\n"
+				sPriceType + "-" + mZones + " " + mTime + " " + sCodeTail + "\n\n"
 
-				+ "E" + sAEOX.substring(0, 9) + "\n"
-				+ "E" + sAEOX.substring(9, 18) + "\n"
-				+ "E" + sAEOX.substring(18, 24) + Utils.getRandChars("AEOX", 3) + "\n"
-				+ "EEEEEEEEEE\n\n"
+				+ sScanCode + "\n\n"
 				
 				+ "SL biljett giltig till " + mTime + " " + mDate + "\n"
 				+ sPriceText + " " + iPrice + " kr ink 6% moms\n"				
@@ -59,8 +53,6 @@ public class StockholmTicket extends Ticket {
 
 	@Override
 	public void create(Bundle data) throws TicketException {
-		mSender = generateSenderNumber();
-
 		Calendar cal = Calendar.getInstance();
 		Date now = new Date();
 
@@ -115,21 +107,13 @@ public class StockholmTicket extends Ticket {
 			sPriceText = "Helt pris";
 		}
 		
-		sCode = Utils.generateRandomString(11, false)
-				+ gNumbers[0] + gNumbers[1] + gNumbers[2];
-		String hexCode = Utils.decToHexLen(sCode, 12);
-		sAEOX = Utils.hexToAEOX(hexCode);
-			
+		sCode = Utils.generateNumberSequence();
+		sScanCode = Utils.aeoxScannerBlock(sCode);		
+		mSender = generateSenderNumber();
 		}
 
 	private String generateSenderNumber() {
-		String number = "SL";
-
-		for (int i = 0; i < 3; i++) {
-			gNumbers[i] = (int) Math.round(Math.random() * 9);
-			number += gNumbers[i];
-		}
-
-		return number;
+		sCodeTail = sCode.substring(sCode.length()-3);
+		return "SL" + sCodeTail;
 	}
 }

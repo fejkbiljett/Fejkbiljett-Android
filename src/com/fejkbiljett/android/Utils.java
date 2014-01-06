@@ -1,5 +1,7 @@
 package com.fejkbiljett.android;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,6 +10,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 public class Utils {
 	public static String gAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	public static String gNumbers = "0123456789";
+	private static Random rnd = new Random();
 
 	public static String generateRandomString() {
 		return Utils.generateRandomString(9, false);
@@ -19,6 +22,14 @@ public class Utils {
 					getRandChars(gNumbers, length);
 	}
 
+	/* Generates a number sequence between 1 000 000 000 000
+	 * and 280 999 999 999 999, where lowest number is 13 chars
+	 * and highest number does not overflow 12 char hexcode.
+	 * ( 280 999 999 999 999 = ff91692e8fff )
+	 */
+	public static String generateNumberSequence() {
+		return (rnd.nextInt(280)+1) + getRandChars(gNumbers,12);		
+	}
 
 	public static void showAlert(Activity activity, String title, String message) {
 		Utils.showAlert(activity, title, message, "OK!");
@@ -60,7 +71,7 @@ public class Utils {
 		char[] charArray = chars.toCharArray();
 		
 		for (int i = 0; i < length; i++) {
-			randChars += charArray[(int) Math.floor(Math.random() * charArray.length)];
+			randChars += charArray[rnd.nextInt(charArray.length)]; //nextInt is non-inclusive of top value
 		}
 		return randChars;
 	}
@@ -91,6 +102,15 @@ public class Utils {
 			AEOX += hexAEOX[Integer.parseInt(String.valueOf(hex.charAt(i)), 16)];
 		}
 		return AEOX;
+	}
+	
+	public static String aeoxScannerBlock(String dec) {
+		String sAEOX = hexToAEOX(decToHexLen(dec,12));
+		
+		return    "E" + sAEOX.substring(0, 9) + "\n"
+				+ "E" + sAEOX.substring(9, 18) + "\n"
+				+ "E" + sAEOX.substring(18, 24) + getRandChars("AEOX", 3) + "\n"
+				+ "EEEEEEEEEE";
 	}
 	
 	/* For test purposes */

@@ -9,9 +9,7 @@ import android.os.Bundle;
 import com.fejkbiljett.android.Utils;
 
 public class UppsalaTicket extends Ticket {
-	private int[] gNumbers = new int[3];
-
-	protected String mSender, uCode, uAEOX = "";;
+	protected String mSender, uCode, uCodeTail, uScanCode= "";;
 	
 	
 	protected String mPriceType, mValidDate, mValidTime, mTime, mDay, mCode = "";
@@ -23,15 +21,15 @@ public class UppsalaTicket extends Ticket {
 	
 	@Override
 	public String getMessage() {
-		return "" + gNumbers[0] + gNumbers[1] + gNumbers[2] + " UL\n\n"
-				+ "U" + (mReduced ? "U" : "V") + " " + mPriceType + " " + "Giltig till "
-				+ mValidTime + " " + mValidDate + "\n"	+ "Stadsbuss" + "\n\n" + mPrice
-				+ " SEK (6% MOMS) "
-				+ uCode + "\n\n"
-				+ "E" + uAEOX.substring(0, 9) + "\n"
-				+ "E" + uAEOX.substring(9, 18) + "\n"
-				+ "E" + uAEOX.substring(18, 24) + Utils.getRandChars("AEOX", 3) + "\n"
-				+ "EEEEEEEEEE";
+		return  uCodeTail + " UL\n\n"
+				
+				+ "U" + (mReduced ? "U" : "V") + " " + mPriceType + " "
+				+ "Giltig till " + mValidTime + " " + mValidDate + "\n"
+				+ "Stadsbuss" + "\n\n"
+				
+				+ mPrice + " SEK (6% MOMS) " + uCode + "\n\n"
+				
+				+ uScanCode;
 	}
 	
 
@@ -52,8 +50,6 @@ public class UppsalaTicket extends Ticket {
 
 	@Override
 	public void create(Bundle data) throws TicketException {
-		mSender = generateSenderNumber();
-
 		Calendar cal = Calendar.getInstance();
 		Date now = new Date();
 
@@ -76,20 +72,12 @@ public class UppsalaTicket extends Ticket {
 		mValidTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
 		mValidDate = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
 
-		uCode = Utils.generateRandomString(12, false)
-			+ gNumbers[0] + gNumbers[1] + gNumbers[2];
-			String hexCode = Utils.decToHex(uCode);
-			uAEOX = Utils.hexToAEOX(hexCode);
+		uCode = Utils.generateNumberSequence();
+		uScanCode = Utils.aeoxScannerBlock(uCode);
+		mSender = generateSenderNumber();
 	}
-
 	private String generateSenderNumber() {
-		String number = "UL";
-
-		for (int i = 0; i < 3; i++) {
-			gNumbers[i] = (int) Math.round(Math.random() * 9);
-			number += gNumbers[i];
-		}
-		
-	return number;
+		uCodeTail = uCode.substring(uCode.length()-3);
+		return "UL" + uCodeTail;
 	}
 }
