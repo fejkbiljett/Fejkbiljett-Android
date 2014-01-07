@@ -54,10 +54,10 @@ public class OrebroTicket extends Ticket {
 
 		if (mReduced) {
 			mPriceType = "SKOLUNGDOM";
-			mPrice = 12;
+			mPrice = 10;
 		} else {
 			mPriceType = "VUXEN";
-			mPrice = 25;
+			mPrice = 21;
 		}
 
 		cal.add(Calendar.MINUTE, 180);
