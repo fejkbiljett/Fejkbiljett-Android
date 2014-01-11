@@ -1,8 +1,10 @@
 package com.fejkbiljett.android.generators;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.widget.RadioButton;
 
 import com.fejkbiljett.android.R;
@@ -22,6 +24,11 @@ public class GoteborgActivity extends TicketGeneratorActivity {
 		
 		Editor editor = getPreferences(MODE_PRIVATE).edit();
 		
+		TelephonyManager tMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+		String myNumber = tMgr.getLine1Number();
+		
+		editor.putString("my_number", myNumber);
+		
 		boolean bReduced;
 		if (((RadioButton) findViewById(R.id.price_reduced)).isChecked()) {
 			bReduced = true;
@@ -31,17 +38,22 @@ public class GoteborgActivity extends TicketGeneratorActivity {
 		editor.putBoolean("price_reduced", bReduced);
 		
 		String zone = "";
-		if (((RadioButton) findViewById(R.id.zone_gbgp)).isChecked()) {
-			zone = "+";
+		if (((RadioButton) findViewById(R.id.zone_gbg)).isChecked()) {
+			zone = "gbg";		
+		} else if (((RadioButton) findViewById(R.id.zone_gbgp)).isChecked()) {
+				zone = "gbg+";
 		} else if (((RadioButton) findViewById(R.id.zone_gbgpp)).isChecked()) {
-			zone = "++";
+			zone = "gbg++";
 		} else if (((RadioButton) findViewById(R.id.zone_gbgppp)).isChecked()) {
-			zone = "+++";
+			zone = "gbg+++";
+		} else if (((RadioButton) findViewById(R.id.zone_kalv)).isChecked()) {
+			zone = "kalv";
 		}
 		
 		editor.putString("zone", zone);
 		editor.commit();
 		
+		data.putString("my_number", myNumber);
 		data.putBoolean("price_reduced", bReduced);
 		data.putString("zone", zone);
 		
@@ -58,12 +70,16 @@ public class GoteborgActivity extends TicketGeneratorActivity {
 		}
 		
 		String zone = prefs.getString("zone", "");
-		if (zone.equals("+")) {
-			((RadioButton) findViewById(R.id.zone_gbgp)).setChecked(true);
-		} else if (zone.equals("++")) {
+		if (zone.equals("gbg")) {
+			((RadioButton) findViewById(R.id.zone_gbg)).setChecked(true);
+		} else if (zone.equals("gbg+")) {
+				((RadioButton) findViewById(R.id.zone_gbgp)).setChecked(true);
+		} else if (zone.equals("gbg++")) {
 			((RadioButton) findViewById(R.id.zone_gbgpp)).setChecked(true);
-		} else if (zone.equals("+++")) {
+		} else if (zone.equals("gbg+++")) {
 			((RadioButton) findViewById(R.id.zone_gbgppp)).setChecked(true);
+		} else if (zone.equals("kalv")) {
+			((RadioButton) findViewById(R.id.zone_kalv)).setChecked(true);
 		}
 	}
 
