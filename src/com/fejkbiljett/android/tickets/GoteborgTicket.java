@@ -143,7 +143,7 @@ public class GoteborgTicket extends Ticket {
 	private String generateSenderNumber() {
 		String number = "VT";
 		number += Utils.getRandChars(Utils.gNumbers, 4);
-		number += Integer.valueOf(sTime.substring(2))+Integer.valueOf(Utils.getRandChars("123456", 1)); //The magic number starting the text is usually time sent + 1-6
+		number += String.format("%02d", Integer.valueOf(sTime.substring(2))+Integer.valueOf(Utils.getRandChars("123456", 1))); //The magic number starting the text is usually time sent + 1-6
 		
 		return number;
 	}
