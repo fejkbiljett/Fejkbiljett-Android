@@ -62,6 +62,11 @@ public class GoteborgTicket extends Ticket {
 		myNumber = data.getString("my_number");
 		sZone = data.getString("zone");
 		bReduced = data.getBoolean("price_reduced");
+		
+		if(myNumber.length()<3) //need at least 3 digits to work
+		{
+			myNumber = Utils.getRandChars(Utils.gNumbers, 3);
+		}
 
 		for(int i=0; i<zones.length; i++) {
 			if (sZone.equals(zones[i]))
@@ -82,22 +87,34 @@ public class GoteborgTicket extends Ticket {
 			sPriceType += " GÖTEBORG";
 			int plus = sZone.length()-"gbg".length();
 			sPriceStr = "inom området Göteborg";
+			String pluses = new String(new char[plus]).replace("\0", "+");
 			switch(plus)
 			{
 				case 0:
-					sCode = Utils.getRandChars("gG", 1) + Utils.getRandChars("tT", 1)+sCode;
+					sCode = Utils.getRandChars("gG", 1) + Utils.getRandChars("tT", 1) + sCode;
 					break;
-				default:
-					sCode = Utils.getRandChars("gG", 1) + Utils.getRandChars("sS", 1)+sCode;
-					String pluses = new String(new char[plus]).replace("\0", "+");
+				case 1:
+					sCode = Utils.getRandChars("gG", 1) + Utils.getRandChars("sS", 1) + sCode;
 					sPriceStr =  pluses + " " + sPriceStr.replace("området ", "") + "s kommun " + pluses;	
 					break;
+				case 2:
+					sCode = Utils.getRandChars("uU", 1) + Utils.getRandChars("sS", 1) + sCode;
+					sPriceStr =  pluses + " " + sPriceStr.replace("området ", "") + "s kommun " + pluses;	
+					break;
+				case 3:
+					sCode = Utils.getRandChars("uU", 1) + Utils.getRandChars("sS", 1) + sCode;
+					sPriceStr =  pluses + " " + sPriceStr.replace("området ", "") + "s kommun " + pluses;	
+					break;
+				default:
+					//nothing
+					break;
+						
 			}
 		}
 		else if(sZone.startsWith("kalv")) {
 			sPriceType += " KUNGÄLV";
 			sPriceStr = "tätort";
-			sCode = Utils.getRandChars("gG", 1) + Utils.getRandChars("äÄ", 1)+sCode;
+			sCode = Utils.getRandChars("gG", 1) + Utils.getRandChars("äÄ", 1) + sCode;
 		}
 			
 		// Date and time
@@ -117,16 +134,15 @@ public class GoteborgTicket extends Ticket {
 		String seconds = String.valueOf(now.getTime()/1000);
 		
 		sCode += myNumber.substring(myNumber.length()-3);
-		sCode += "9Q"; //was this at 2014-01-08
+		sCode += "4U"; //was this 2014-01-11 was "9Q" 2014-01-08, "4B" 2013-12-26
 		sCode += seconds.substring(seconds.length()-6); //this is a moving number, this is incorrect but follows a good pattern
 		
 		mSender = generateSenderNumber();
 	}
 
 	private String generateSenderNumber() {
-		String number = "72450";
-		number += "0";
-		number += Utils.getRandChars(Utils.gNumbers, 1);
+		String number = "VT";
+		number += Utils.getRandChars(Utils.gNumbers, 4);
 		number += Integer.valueOf(sTime.substring(2))+Integer.valueOf(Utils.getRandChars("123456", 1)); //The magic number starting the text is usually time sent + 1-6
 		
 		return number;
