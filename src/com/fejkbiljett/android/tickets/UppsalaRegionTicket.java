@@ -134,7 +134,7 @@ public class UppsalaRegionTicket extends Ticket {
 			mZoneType = "UL" + "SL" + (bReduced ? "U" : "V");
 			mPrice = bReduced ? 65 : 110;
 			iExpireTime = 120;
-			mZon = "UL + SL Län";
+			mZon = "UL Län + SL Län";
 			break;
 		case R.id.region_zone_bike:
 			mZoneType = "ULCY";
