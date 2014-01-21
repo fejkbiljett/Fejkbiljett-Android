@@ -4,11 +4,11 @@ Fejkbiljett för Android
 Fejkbiljett är en Android-applikation som skapar biljetter som *liknar* äkta sms-biljetter som behövs för att åka i olika städers kollektivtrafik.
 
 För närvarande stöds följande städer:
-*Stockholm (SL, alla zoner inklusive länsöverskridande biljetter)
-*Uppsala (UL, lokal och regional trafik, inklusive kombinationsbijetter med SL)
-*Göteborg (Göteborg stadstrafik, Göteborg+, Göteborg++, Göteborg+++ samt Kungälv)
-*Västerås (Stadstrafik)
-*Örebro (Stadstrafik)
+* Stockholm (SL, alla zoner inklusive länsöverskridande biljetter)
+* Uppsala (UL, lokal och regional trafik, inklusive kombinationsbijetter med SL)
+* Göteborg (Göteborg stadstrafik, Göteborg+, Göteborg++, Göteborg+++ samt Kungälv)
+* Västerås (Stadstrafik)
+* Örebro (Stadstrafik)
 
 
 Ansvarsfriskrivning
@@ -32,9 +32,9 @@ Appens rättigheter
 ------------------
 
 Appen kräver dessa rättigheter:
-*WRITE_SMS (För att kunna skriva sms i telefonen)
-*READ_SMS (Behövs också för att kunna skriva sms)
-*READ_PHONE_STATE (Används för att läsa ditt telefonnummer, de tre sista sifforna används i Västtrafiks biljetter)
+* WRITE_SMS (För att kunna skriva sms i telefonen)
+* READ_SMS (Behövs också för att kunna skriva sms)
+* READ_PHONE_STATE (Används för att läsa ditt telefonnummer, de tre sista sifforna används i Västtrafiks biljetter)
 
 
 Diskutera
