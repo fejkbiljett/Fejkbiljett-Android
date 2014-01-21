@@ -12,6 +12,18 @@ public class GoteborgTicket extends Ticket {
 	final String zones[] = {"gbg", "gbg+", "gbg++", "gbg+++", "kalv"};
 	final int    price[] = {25,    49,      60,      93,      25};
 	final int redprice[] = {19,    37,      46,      70,      10};  
+	
+	final String unknownCode[] = { 	"4U", //2014-01-11 
+									"9Q", //2014-01-08
+									"4B", //2013-12-26 
+									"7D", //2013-12-23
+									"6M", //2011-06-30
+									"3V", //2011-06-04
+									"5V", //2011-05-16
+									"1S", //2011-04-23
+									"7Y"  //2011-04-22
+							     };
+
 
 	final String aChars = "+-/*";
 
@@ -74,7 +86,7 @@ public class GoteborgTicket extends Ticket {
 				if (bReduced) {
 					sPriceType = "SKOLUNGDOM";
 					sPrice = String.valueOf(redprice[i]);
-					sCode = Utils.getRandChars("veu", 1); //fixme!
+					sCode = Utils.getRandChars("s", 1); //fixme! (more reduced codes needed)
 				}
 				else {
 					sPriceType = "VUXEN";
@@ -134,7 +146,7 @@ public class GoteborgTicket extends Ticket {
 		String seconds = String.valueOf(now.getTime()/1000);
 		
 		sCode += myNumber.substring(myNumber.length()-3);
-		sCode += "4U"; //was this 2014-01-11 was "9Q" 2014-01-08, "4B" 2013-12-26
+		sCode += unknownCode[Integer.valueOf(seconds.substring(seconds.length()-8, seconds.length()-6))%unknownCode.length];
 		sCode += seconds.substring(seconds.length()-6); //this is a moving number, this is incorrect but follows a good pattern
 		
 		mSender = generateSenderNumber();
