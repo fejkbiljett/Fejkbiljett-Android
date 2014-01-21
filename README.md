@@ -1,18 +1,45 @@
 Fejkbiljett för Android
 =======================
 
-Fejkbiljett är en Android-applikation för att skapa textmeddelanden i din mobila enhet utan att faktiskt behöva skicka iväg några.
+Fejkbiljett är en Android-applikation som skapar biljetter som *liknar* äkta sms-biljetter som behövs för att åka i olika städers kollektivtrafik.
 
-Återupplivad av Essylia @ Flashback.org
+För närvarande stöds följande städer:
+*Stockholm (SL, alla zoner inklusive länsöverskridande biljetter)
+*Uppsala (UL, lokal och regional trafik, inklusive kombinationsbijetter med SL)
+*Göteborg (Göteborg stadstrafik, Göteborg+, Göteborg++, Göteborg+++ samt Kungälv)
+*Västerås (Stadstrafik)
+*Örebro (Stadstrafik)
+
+
+Ansvarsfriskrivning
+-------------------
+
+Att använda Fejkbiljett för att olovligen åka i kollektivtrafiken är att betrakta som bedrägeri och/eller urkundsförfalskning, utvecklarna uppmanar användarna att endast använda program och källkod i utbildningssyfte.
+
 
 Ladda ned
 ---------
 
-**Fejkbiljett 0.2** går att ladda ned här:
+**Fejkbiljett 0.11** går att ladda ned här:
 
-http://filesmelt.com/dl/Fejkbiljett_v0-21.apk
+http://www.uploadmb.com/dw.php?id=1390339795
 
-http://www.uploadmb.com/dw.php?id=1362753235
+*MD5: 68d6261adb4983999b483f7ae1ebea9f*
+*SHA1: 6fe1e23411d4f8d07b361ac7c5316242c79c3678*
 
-*MD5: 60A26BEE7B18073AC73FABCF8D307BAA*  
-*SHA1: D84368A6226F06B7EF440B4A42F9B7F70389D224*
+
+Appens rättigheter
+------------------
+
+Appen kräver dessa rättigheter:
+*WRITE_SMS (För att kunna skriva sms i telefonen)
+*READ_SMS (Behövs också för att kunna skriva sms)
+*READ_PHONE_STATE (Används för att läsa ditt telefonnummer, de tre sista sifforna används i Västtrafiks biljetter)
+
+
+Diskutera
+---------
+
+Fejkbiljetts Flashbacktråd:
+
+https://www.flashback.org/t2073456
