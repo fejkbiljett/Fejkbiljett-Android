@@ -32,5 +32,7 @@
         <activity android:name=".generators.GoteborgActivity" />
         <activity android:name=".generators.UmeaActivity" />
 		<activity android:name=".generators.JonkopingActivity" />
+		<activity android:name=".generators.VasterasActivity" />
+		<activity android:name=".generators.OrebroActivity" />
 	</application>
 </manifest>

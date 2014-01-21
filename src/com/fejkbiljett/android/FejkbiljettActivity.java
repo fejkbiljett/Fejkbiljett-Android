@@ -13,24 +13,31 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.fejkbiljett.android.generators.StockholmActivity;
 import com.fejkbiljett.android.generators.UppsalaActivity;
-//import com.fejkbiljett.android.generators.UmeaActivity;
 import com.fejkbiljett.android.generators.GoteborgActivity;
+import com.fejkbiljett.android.generators.VasterasActivity;
+import com.fejkbiljett.android.generators.OrebroActivity;
+//import com.fejkbiljett.android.generators.UmeaActivity;
 //import com.fejkbiljett.android.generators.JonkopingActivity;
 
 public class FejkbiljettActivity extends SherlockListActivity {
 	@SuppressWarnings("rawtypes")
 	Class[] classes = { StockholmActivity.class, 
 						//UmeaActivity.class, 
+						UppsalaActivity.class,
                         GoteborgActivity.class, 
                         //JonkopingActivity.class,
-                		UppsalaActivity.class };
+                		VasterasActivity.class,
+                		OrebroActivity.class};
 	
 
 	Integer[] images = new Integer[] { R.drawable.stockholm,
 									   //R.drawable.umea,
-									   R.drawable.goteborg,
 									   //R.drawable.jonkoping,
-									   R.drawable.uppsala };
+									   R.drawable.uppsala,
+									   R.drawable.goteborg,
+									   R.drawable.vasteras,
+									   R.drawable.orebro
+									   };
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
