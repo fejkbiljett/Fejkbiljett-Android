@@ -27,7 +27,7 @@ public class GoteborgTicket extends Ticket {
 
 	final String aChars = "+-/*";
 
-	protected String mSender, myNumber;
+	protected String mSender, lastThree;
 
 	protected String sZone, sPrice, sPriceType, sPriceStr, sValidTime, sValidDate, sTime,
 			sMonth, sDay, sCode = "";
@@ -71,13 +71,13 @@ public class GoteborgTicket extends Ticket {
 		Calendar cal = Calendar.getInstance();
 		Date now = new Date();
 
-		myNumber = data.getString("my_number");
+		lastThree = data.getString("last_three");
 		sZone = data.getString("zone");
 		bReduced = data.getBoolean("price_reduced");
 		
-		if(myNumber.length()<3) //need at least 3 digits to work
+		if(lastThree.length()!=3)
 		{
-			myNumber = Utils.getRandChars(Utils.gNumbers, 3);
+			lastThree = Utils.getRandChars(Utils.gNumbers, 3);
 		}
 
 		for(int i=0; i<zones.length; i++) {
@@ -145,7 +145,7 @@ public class GoteborgTicket extends Ticket {
 
 		String seconds = String.valueOf(now.getTime()/1000);
 		
-		sCode += myNumber.substring(myNumber.length()-3);
+		sCode += lastThree.substring(lastThree.length()-3);
 		sCode += unknownCode[Integer.valueOf(seconds.substring(seconds.length()-8, seconds.length()-6))%unknownCode.length];
 		sCode += seconds.substring(seconds.length()-6); //this is a moving number, this is incorrect but follows a good pattern
 		

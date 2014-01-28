@@ -10,7 +10,6 @@
 
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
 
     <application
         android:icon="@drawable/icon"

@@ -72,6 +72,30 @@
                 android:text="Kungälv" >
             </RadioButton>
         </RadioGroup>
+        
+        <!-- Last 3 digits of number -->
+        
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:text="@string/last_three_digits"
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+        
+        <!-- Dummy item to prevent EditText from receiving focus -->
+		<LinearLayout
+		    android:focusable="true" android:focusableInTouchMode="true"
+		    android:layout_width="0px" android:layout_height="0px"/>
+
+        <EditText
+    		android:id="@+id/last_three"
+    		android:layout_width="10mm"
+    		android:layout_height="wrap_content"
+    		android:maxLength="3"
+    		android:inputType="number" />
     </LinearLayout>
 
 </ScrollView>

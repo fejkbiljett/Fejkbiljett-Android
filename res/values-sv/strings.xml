@@ -5,6 +5,8 @@
 	
 	<string name="label_price">Pris:</string>
 	<string name="label_zone">Zon:</string>
+
+    <string name="last_three_digits">Tre sista siffrorna i ditt telnr:</string>
 	
 	<string name="menu_create">Skapa</string>
 	<string name="menu_changecity">Byt stad</string>

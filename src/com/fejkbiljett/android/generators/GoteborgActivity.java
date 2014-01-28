@@ -6,6 +6,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.widget.RadioButton;
+import android.widget.EditText;
 
 import com.fejkbiljett.android.R;
 import com.fejkbiljett.android.tickets.GoteborgTicket;
@@ -24,10 +25,12 @@ public class GoteborgActivity extends TicketGeneratorActivity {
 		
 		Editor editor = getPreferences(MODE_PRIVATE).edit();
 		
-		TelephonyManager tMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-		String myNumber = tMgr.getLine1Number();
-		
-		editor.putString("my_number", myNumber);
+		String lastThree = ((EditText) findViewById(R.id.last_three)).getText().toString();
+		if(lastThree.length() != 3) {
+			lastThree = "";
+		}
+			
+		editor.putString("last_three", lastThree);
 		
 		boolean bReduced;
 		if (((RadioButton) findViewById(R.id.price_reduced)).isChecked()) {
@@ -53,7 +56,7 @@ public class GoteborgActivity extends TicketGeneratorActivity {
 		editor.putString("zone", zone);
 		editor.commit();
 		
-		data.putString("my_number", myNumber);
+		data.putString("last_three", lastThree);
 		data.putBoolean("price_reduced", bReduced);
 		data.putString("zone", zone);
 		
@@ -65,6 +68,9 @@ public class GoteborgActivity extends TicketGeneratorActivity {
 		super.onResume();
 		
 		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+		
+		((EditText) findViewById(R.id.last_three)).setText( prefs.getString("last_three", "") );
+		
 		if (prefs.getBoolean("price_reduced", false)) {
 			((RadioButton) findViewById(R.id.price_reduced)).setChecked(true);
 		}
@@ -91,8 +97,8 @@ public class GoteborgActivity extends TicketGeneratorActivity {
 		Bundle data = getParams();
 		
 		editor.putBoolean("price_reduced", data.getBoolean("price_reduced"));
-		
 		editor.putString("zone", data.getString("zone"));
+		editor.putString("last_three", data.getString("last_three"));
 
 		editor.commit();
 	}

@@ -9,6 +9,8 @@
     <string name="label_price">Price:</string>
     <string name="label_zone">Zone:</string>
     
+    <string name="last_three_digits">Last 3 digits of your phone#:</string>
+    
     <string name="menu_create">Create</string>
     <string name="menu_changecity">Change city</string>
     <string name="menu_settings">Settings</string>
