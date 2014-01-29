@@ -43,3 +43,12 @@ Diskutera
 Fejkbiljetts Flashbacktråd:
 
 https://www.flashback.org/t2073456
+
+
+Donera
+------
+
+Skänk en slant:
+* Bitcoin: 1CL5cHoGkeUvTiZxpAbUiZFWipkbntDZZM 
+* Litecoin: Lbd9SFKhv3SPK5aZ2RAugpffFGpMku351c
+* http://www.lakareutangranser.se/ge-gava/privatperson
