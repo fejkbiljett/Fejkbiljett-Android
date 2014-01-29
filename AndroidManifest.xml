@@ -17,7 +17,8 @@
         android:theme="@style/FejkbiljettStyle">
         <activity
             android:name=".FejkbiljettActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:excludeFromRecents="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
