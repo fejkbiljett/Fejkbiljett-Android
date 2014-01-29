@@ -20,12 +20,12 @@ Att använda Fejkbiljett för att olovligen åka i kollektivtrafiken är att bet
 Ladda ned
 ---------
 
-**Fejkbiljett 0.11** går att ladda ned här:
+**Fejkbiljett 0.12** går att ladda ned här:
 
-http://www.uploadmb.com/dw.php?id=1390339795
+http://www.uploadmb.com/dw.php?id=1390939237
 
-MD5: *68d6261adb4983999b483f7ae1ebea9f*   
-SHA1: *6fe1e23411d4f8d07b361ac7c5316242c79c3678*   
+MD5: *2731e334f336469274ed528bafb043e0*   
+SHA1: *bfa35b293f95a3adf19f642c3f6a3855bf0b9463*   
 
 
 Appens rättigheter
@@ -34,7 +34,7 @@ Appens rättigheter
 Appen kräver dessa rättigheter:
 * WRITE_SMS (För att kunna skriva sms i telefonen)
 * READ_SMS (Behövs också för att kunna skriva sms)
-* READ_PHONE_STATE (Används för att läsa ditt telefonnummer, de tre sista sifforna används i Västtrafiks biljetter)
+* ~~READ_PHONE_STATE (Används för att läsa ditt telefonnummer, de tre sista sifforna används i Västtrafiks biljetter)~~
 
 
 Diskutera
