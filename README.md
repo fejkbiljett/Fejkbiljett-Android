@@ -20,12 +20,12 @@ Att använda Fejkbiljett för att olovligen åka i kollektivtrafiken är att bet
 Ladda ned
 ---------
 
-**Fejkbiljett 0.12** går att ladda ned här:
+**Fejkbiljett 0.13** går att ladda ned här:
 
-http://www.uploadmb.com/dw.php?id=1390939237
+<!--- Download URL --->http://www.uploadmb.com/dw.php?id=1391272101
 
-MD5: *2731e334f336469274ed528bafb043e0*   
-SHA1: *bfa35b293f95a3adf19f642c3f6a3855bf0b9463*   
+MD5: *c1f6ca89f54c98ded0e67c54b0fc1d88*   
+SHA1: *889a99678d86bbb04dd1d2b9fad58685f24806cd*   
 
 
 Appens rättigheter
