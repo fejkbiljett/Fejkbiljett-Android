@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fejkbiljett.android"
-    android:versionCode="13"
-    android:versionName="0.13" >
+    android:versionCode="12"
+    android:versionName="0.12" >
 
     <uses-sdk
         android:minSdkVersion="4"
@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
+	<uses-permission android:name="android.permission.INTERNET" /> 
 
     <application
         android:icon="@drawable/icon"

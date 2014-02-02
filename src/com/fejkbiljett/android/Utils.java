@@ -1,11 +1,20 @@
 package com.fejkbiljett.android;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.Context;
 
 public class Utils {
 	public static String gAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -54,6 +63,19 @@ public class Utils {
 		try {
 			version = context.getPackageManager().getPackageInfo(
 					context.getPackageName(), 0).versionName;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return version;
+	}
+	
+	public static int getVersionCode(Context context) {
+		int version=0;
+
+		try {
+			version = context.getPackageManager().getPackageInfo(
+					context.getPackageName(), 0).versionCode;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -123,5 +145,15 @@ public class Utils {
 			}
 		}
 		return hex;
-	}	
+	}
+	
+	public static Intent getAppOpsIntent() {
+		Intent intent = new Intent();
+		intent.setClassName("com.android.settings", "com.android.settings.Settings");
+		intent.setAction(Intent.ACTION_MAIN);
+		intent.addCategory(Intent.CATEGORY_DEFAULT);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+		intent.putExtra(":android:show_fragment", "com.android.settings.applications.AppOpsSummary");
+		return intent;
+	}
 }

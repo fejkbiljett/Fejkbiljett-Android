@@ -15,5 +15,9 @@
         android:key="sms_permission"
         android:summary="@string/settings_smspermission_summary"
         android:title="@string/settings_smspermission" />
-
+    <Preference
+        android:key="check_version"
+        android:summary="@string/settings_check_version_summary"
+        android:title="@string/settings_check_version" />
+    
 </PreferenceScreen>
