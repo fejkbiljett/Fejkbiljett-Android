@@ -22,7 +22,7 @@ Ladda ned
 
 **Fejkbiljett 0.13** går att ladda ned här:
 
-http://www.uploadmb.com/dw.php?id=1391272101
+https://github.com/Olangu/Fejkbiljett-Android/raw/master/releases/Fejkbiljett0.13.apk
 
 MD5: *c1f6ca89f54c98ded0e67c54b0fc1d88*   
 SHA1: *889a99678d86bbb04dd1d2b9fad58685f24806cd*   
