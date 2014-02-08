@@ -1,5 +1,8 @@
 package com.fejkbiljett.android;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 
 import android.app.Activity;
@@ -148,5 +151,20 @@ public class Utils {
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 		intent.putExtra(":android:show_fragment", "com.android.settings.applications.AppOpsSummary");
 		return intent;
+	}
+	
+	
+	public static ByteArrayOutputStream readStream(InputStream is) {
+	    try {
+	      ByteArrayOutputStream bo = new ByteArrayOutputStream();
+	      int i = is.read();
+	      while(i != -1) {
+	        bo.write(i);
+	        i = is.read();
+	      }
+	      return bo;
+	    } catch (IOException e) {
+	      return null;
+	    }
 	}
 }

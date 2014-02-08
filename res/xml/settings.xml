@@ -19,5 +19,9 @@
         android:key="check_version"
         android:summary="@string/settings_check_version_summary"
         android:title="@string/settings_check_version" />
+    <Preference
+        android:key="update"
+        android:summary="@string/settings_update_summary"
+        android:title="@string/settings_update" />
     
 </PreferenceScreen>

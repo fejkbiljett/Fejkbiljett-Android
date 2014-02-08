@@ -12,9 +12,12 @@
     <string name="last_three_digits">Last 3 digits of your phone#:</string>
     
     <string name="menu_create">Create</string>
+   	<string name="menu_update">Update!</string>
     <string name="menu_changecity">Change city</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_overlay">Overlay</string>
+    
+   	<string name="downloading_update">Downloading update:</string>
     
     <string name="ticket_created">A ticket has been created!</string>
     
@@ -31,5 +34,9 @@
 	<string name="settings_check_version_summary">Verify that you have latest version of Fejkbiljett.</string>
 	<string name="settings_version_up_to_date">Your Fejkbiljett is up to date!</string>
 	<string name="settings_version_cant_connect">Can\'t connect to server!</string>
+	
+	<string name="settings_update">Update Fejkbiljett</string>
+	<string name="settings_update_summary">Downloads and installs latest version of Fejkbiljett</string>
+	
 	
 </resources>

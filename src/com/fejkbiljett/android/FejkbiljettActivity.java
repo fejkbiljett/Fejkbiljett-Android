@@ -38,18 +38,27 @@ public class FejkbiljettActivity extends SherlockListActivity {
 									   R.drawable.vasteras,
 									   R.drawable.orebro
 									   };
-
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
 		ActionBar ab = getSupportActionBar();
 		ab.setTitle(getString(R.string.app_name) + " " + Utils.getVersion(this));
-
+				
 		ImageAdapter adapter = new ImageAdapter(this, images);
 		setListAdapter(adapter);
 
 		init();
+	}
+	
+	protected void onResume() {
+		super.onResume();
+		
+		if(SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
+			invalidateOptionsMenu();
+		}
+			
 	}
 
 	public void init() {
@@ -89,9 +98,15 @@ public class FejkbiljettActivity extends SherlockListActivity {
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent;
 		switch (item.getItemId()) {
+		case R.id.menuitem_update:
+			intent = new Intent(this, SettingsActivity.class);
+			intent.putExtra("update", true);
+			startActivity(intent);
+			return true;
 		case R.id.menuitem_settings:
-			Intent intent = new Intent(this, SettingsActivity.class);
+			intent = new Intent(this, SettingsActivity.class);
 			startActivity(intent);
 			return true;
 		default:
@@ -102,7 +117,9 @@ public class FejkbiljettActivity extends SherlockListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getSupportMenuInflater();
 		inflater.inflate(R.menu.main, menu);
-
+		if(SettingsActivity.isVersionUpToDate(getApplicationContext())) {
+			menu.findItem(R.id.menuitem_update).setEnabled(false).setVisible(false);
+		}
 		return true;
 	}
 }

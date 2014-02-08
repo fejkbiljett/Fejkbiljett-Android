@@ -88,7 +88,13 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent;
 		switch (item.getItemId()) {
+		case R.id.menuitem_update:
+			intent = new Intent(this, SettingsActivity.class);
+			intent.putExtra("update", true);
+			startActivity(intent);
+			return true;
 		case R.id.menuitem_create:
 			onGenerate();
 			return true;
@@ -98,7 +104,7 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 			finish();
 			return true;
 		case R.id.menuitem_settings:
-			Intent intent = new Intent(this, SettingsActivity.class);
+			intent = new Intent(this, SettingsActivity.class);
 			startActivity(intent);
 			return true;
 		default:
@@ -116,11 +122,22 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 		ab.setDisplayShowHomeEnabled(true);
 	}
 
+	protected void onResume() {
+		super.onResume();
+		
+		if(SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
+			invalidateOptionsMenu();
+		}
+			
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getSupportMenuInflater();
 		inflater.inflate(R.menu.city, menu);
-
+		if(SettingsActivity.isVersionUpToDate(getApplicationContext())) {
+			menu.findItem(R.id.menuitem_update).setEnabled(false).setVisible(false);
+		}
 		return true;
 	}
 }

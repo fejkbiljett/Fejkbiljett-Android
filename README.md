@@ -34,7 +34,9 @@ Appens rättigheter
 Appen kräver dessa rättigheter:
 * WRITE_SMS (För att kunna skriva sms i telefonen)
 * READ_SMS (Behövs också för att kunna skriva sms)
-* ~~READ_PHONE_STATE (Används för att läsa ditt telefonnummer, de tre sista sifforna används i Västtrafiks biljetter)~~
+* INTERNET (Nerladdning av uppdateringar) 
+* WAKE_LOCK (Så inte telefonen går i viloläge när uppdatering laddas ned)
+* WRITE_EXTERNAL_STORAGE (För att lagra nedhämtade uppdateringen)
 
 
 Diskutera

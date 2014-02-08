@@ -9,9 +9,12 @@
     <string name="last_three_digits">Tre sista siffrorna i ditt telnr:</string>
 	
 	<string name="menu_create">Skapa</string>
+	<string name="menu_update">Uppgradera!</string>
 	<string name="menu_changecity">Byt stad</string>
 	<string name="menu_settings">Inställningar</string>
 	<string name="menu_overlay">Överdrag</string>
+	
+	<string name="downloading_update">Laddar ner uppdatering:</string>
 	
 	<string name="ticket_created">Biljett skapad!</string>
 	
@@ -30,5 +33,7 @@
 	<string name="settings_version_up_to_date">Du har senaste versionen av Fejkbiljett!</string>
 	<string name="settings_version_cant_connect">Kunde inte ansluta, aktivera data!</string>
 	
+	<string name="settings_update">Updatera Fejkbiljett</string>
+	<string name="settings_update_summary">Laddar ner och installerar senaste versionen av Fejkbiljett</string>
 	
 </resources>
