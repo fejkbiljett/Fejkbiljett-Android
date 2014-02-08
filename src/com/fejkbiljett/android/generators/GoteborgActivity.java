@@ -1,10 +1,8 @@
 package com.fejkbiljett.android.generators;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.widget.RadioButton;
 import android.widget.EditText;
 
