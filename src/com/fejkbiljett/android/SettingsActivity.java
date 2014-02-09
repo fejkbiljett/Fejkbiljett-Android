@@ -27,30 +27,23 @@ import android.preference.PreferenceActivity;
 import android.widget.Toast;
 
 public class SettingsActivity extends PreferenceActivity {
-	protected ProgressDialog mProgressDialog;
-	Preference updateButton;
+	protected ProgressDialog mProgressDialog=null;
+	protected boolean mUpdateAfterVersionCheck=false;
 	
+	@SuppressWarnings("deprecation")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.settings);
 		
 		Preference permissionButton = (Preference)findPreference("sms_permission");
-		Preference checkVersionButton = (Preference)findPreference("check_version");
-		updateButton = (Preference)findPreference("update");
-		updateButton.setEnabled(!isVersionUpToDate(getApplicationContext()));
+		Preference updateButton = (Preference)findPreference("update");
 
-		checkVersionButton.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-			@Override
-			public boolean onPreferenceClick(Preference arg0) { 		    
-				new CheckVersionTask(getApplicationContext()).execute();
-				return true;
-		    }
-		});
-		
 		updateButton.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 			@Override
-			public boolean onPreferenceClick(Preference arg0) { 		    
-				update();
+			public boolean onPreferenceClick(Preference arg0) {
+				mUpdateAfterVersionCheck=true;
+				mProgressDialog.show();
+				update(getApplicationContext());
 				return true;
 		    }
 		});
@@ -71,30 +64,24 @@ public class SettingsActivity extends PreferenceActivity {
 		
 		
 		mProgressDialog = new ProgressDialog(SettingsActivity.this);
-		mProgressDialog.setMessage(getString(R.string.downloading_update));
-		mProgressDialog.setIndeterminate(true);
 		mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+		mProgressDialog.setMessage(getString(R.string.checking_version));
 		mProgressDialog.setCancelable(true);
 		
 		if(getIntent().getBooleanExtra("update", false)) {
-			update();
+			update(getApplicationContext());
 		}
 	}
 	
-	private void update() {
-		final GetUpdateTask updateTask = new GetUpdateTask(getApplicationContext());
-		updateTask.execute();
-	
-		mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-	    	@Override
-	    	public void onCancel(DialogInterface dialog) {
-	        	updateTask.cancel(true);
-	    	}
-		});
+	public void update(Context c) {
+		final CheckVersionTask checkVersionTask = new CheckVersionTask(c);
+		checkVersionTask.execute();
 	}
 	
 	public static boolean isVersionUpToDate(Context c) {
-		return c.getSharedPreferences("version_check",MODE_PRIVATE).getBoolean("version_up_to_date", true);
+		int latestVersionCode = c.getSharedPreferences("version_check",MODE_PRIVATE)
+									.getInt("latest_version_code", 0);
+		return latestVersionCode <= Utils.getVersionCode(c);
 	}
 
 	public static boolean markOutOfDate(Context c, ActionBar ab) {
@@ -123,6 +110,8 @@ public class SettingsActivity extends PreferenceActivity {
 	    @Override
 	    protected void onPreExecute() {
 	        super.onPreExecute();
+			mProgressDialog.setMessage(getString(R.string.downloading_update));
+			mProgressDialog.setIndeterminate(true);
 	        mProgressDialog.show();
 	    }
 
@@ -215,8 +204,19 @@ public class SettingsActivity extends PreferenceActivity {
 			return null;
 		}
 		
+		protected void onPreExecute() {
+			super.onPreExecute();
+			if(mProgressDialog != null) {
+				mProgressDialog.setMessage(getString(R.string.checking_version));
+				mProgressDialog.setIndeterminate(true);
+			}
+		}
+		
 		@Override
 	    protected void onPostExecute(Void v) {
+			if(mProgressDialog != null) {
+				mProgressDialog.dismiss();
+			}
 			if(latestVersion.isEmpty()) {
 				Toast.makeText(context, R.string.settings_version_cant_connect, Toast.LENGTH_LONG).show();
 			} else {
@@ -227,16 +227,24 @@ public class SettingsActivity extends PreferenceActivity {
 				editor.putString("latest_version_url", latestVersionURL);
 				editor.putString("latest_version", latestVersion);
 				editor.putInt("latest_version_code", latestVersionCode);
-				editor.putBoolean("version_up_to_date", versionUpToDate);
 				
 				editor.commit();
 
 				if(versionUpToDate) {
 					Toast.makeText(context, R.string.settings_version_up_to_date, Toast.LENGTH_LONG).show();
-				} else {
-					updateButton.setEnabled(true);
+				} else if(mUpdateAfterVersionCheck) {
+					final GetUpdateTask updateTask = new GetUpdateTask(context);
+					updateTask.execute();
+						
+					mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+				    	@Override
+				    	public void onCancel(DialogInterface dialog) {
+				        	updateTask.cancel(true);
+				    	}
+					});
 				}
-			}		
+			}
+			mUpdateAfterVersionCheck=false;
 		}
 
 		private void populate() {

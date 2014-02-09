@@ -30,13 +30,12 @@
     <string name="settings_smspermission">Give write SMS permission</string>
 	<string name="settings_smspermission_summary">As of Android 4.4 (KitKat) Fejkbiljett needs permission to write to SMS store.</string>
 	
-	<string name="settings_check_version">Check version</string>
-	<string name="settings_check_version_summary">Verify that you have latest version of Fejkbiljett.</string>
-	<string name="settings_version_up_to_date">Your Fejkbiljett is up to date!</string>
-	<string name="settings_version_cant_connect">Can\'t connect to server!</string>
-	
 	<string name="settings_update">Update Fejkbiljett</string>
 	<string name="settings_update_summary">Downloads and installs latest version of Fejkbiljett</string>
-	
+	<string name="settings_version_up_to_date">Your Fejkbiljett is up to date!</string>
+	<string name="settings_version_cant_connect">Can\'t connect to server!</string>	
+	<string name="settings_autocheckupdate">Automatic version check</string>
+	<string name="settings_autocheckupdate_summary">Checks for new versions when Fejkbiljett is started (at most once a day).</string>
+	<string name="checking_version">Checking version...</string>
 	
 </resources>

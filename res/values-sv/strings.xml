@@ -28,12 +28,13 @@
 	<string name="settings_smspermission">Ge rättighet att skriva SMS</string>
 	<string name="settings_smspermission_summary">Sedan Android 4.4 (KitKat) behöver du ge Fejkbiljett rättighet att skriva till din sms-korg.</string>
 	
-	<string name="settings_check_version">Sök efter uppdateringar</string>
-	<string name="settings_check_version_summary">Kontrollerar om du har senaste versionen av Fejkbiljett.</string>
-	<string name="settings_version_up_to_date">Du har senaste versionen av Fejkbiljett!</string>
-	<string name="settings_version_cant_connect">Kunde inte ansluta, aktivera data!</string>
-	
 	<string name="settings_update">Updatera Fejkbiljett</string>
 	<string name="settings_update_summary">Laddar ner och installerar senaste versionen av Fejkbiljett</string>
+	<string name="settings_version_up_to_date">Du har senaste versionen av Fejkbiljett!</string>
+	<string name="settings_version_cant_connect">Kunde inte ansluta, aktivera data!</string>
+	<string name="settings_autocheckupdate">Automatiskt versionskontroll</string>
+	<string name="settings_autocheckupdate_summary">Söker efter nya versioner av Fejkbiljett när applikatitonen startas (max 1 gång per dag).</string>
+	<string name="checking_version">Kontrollerar version...</string>
 	
+		
 </resources>

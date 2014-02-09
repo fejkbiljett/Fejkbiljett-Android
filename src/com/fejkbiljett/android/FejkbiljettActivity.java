@@ -1,8 +1,13 @@
 package com.fejkbiljett.android;
 
+import java.util.Date;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ListView;
 
@@ -19,7 +24,8 @@ import com.fejkbiljett.android.generators.OrebroActivity;
 //import com.fejkbiljett.android.generators.UmeaActivity;
 //import com.fejkbiljett.android.generators.JonkopingActivity;
 
-public class FejkbiljettActivity extends SherlockListActivity {
+public class FejkbiljettActivity extends SherlockListActivity 
+		implements OnSharedPreferenceChangeListener {
 	@SuppressWarnings("rawtypes")
 	Class[] classes = { StockholmActivity.class, 
 						//UmeaActivity.class, 
@@ -48,17 +54,30 @@ public class FejkbiljettActivity extends SherlockListActivity {
 				
 		ImageAdapter adapter = new ImageAdapter(this, images);
 		setListAdapter(adapter);
+		
+		getSharedPreferences("version_check",MODE_PRIVATE).registerOnSharedPreferenceChangeListener(this);
 
 		init();
 	}
 	
+	@SuppressWarnings("deprecation")
 	protected void onResume() {
 		super.onResume();
 		
-		if(SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
-			invalidateOptionsMenu();
+		/* Check for updates */
+		if(PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				"auto_update", false))
+		{
+			Date lastCheck = new Date(getSharedPreferences("version_check",MODE_PRIVATE)
+					 				  .getLong("latest_version_check", 0));
+			Date todayMidnight = new Date();
+			todayMidnight.setHours(0);
+			todayMidnight.setMinutes(0);
+			todayMidnight.setSeconds(0);
+			if(lastCheck.before(todayMidnight)) {
+				new SettingsActivity().update(getApplicationContext());
+			}				
 		}
-			
 	}
 
 	public void init() {
@@ -117,9 +136,16 @@ public class FejkbiljettActivity extends SherlockListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getSupportMenuInflater();
 		inflater.inflate(R.menu.main, menu);
-		if(SettingsActivity.isVersionUpToDate(getApplicationContext())) {
+		if(!SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
 			menu.findItem(R.id.menuitem_update).setEnabled(false).setVisible(false);
 		}
 		return true;
+	}
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences arg0, String arg1) {
+		if(!SettingsActivity.isVersionUpToDate(getApplicationContext())) {
+			invalidateOptionsMenu();
+		}
 	}
 }
