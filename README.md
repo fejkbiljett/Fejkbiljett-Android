@@ -20,12 +20,12 @@ Att använda Fejkbiljett för att olovligen åka i kollektivtrafiken är att bet
 Ladda ned
 ---------
 
-**Fejkbiljett 0.13** går att ladda ned här:
+**Fejkbiljett 0.14** går att ladda ned här:
 
-https://github.com/Olangu/Fejkbiljett-Android/raw/master/releases/Fejkbiljett0.13.apk
+https://github.com/Olangu/Fejkbiljett-Android/raw/master/releases/Fejkbiljett0.14.apk
 
-MD5: *c1f6ca89f54c98ded0e67c54b0fc1d88*   
-SHA1: *889a99678d86bbb04dd1d2b9fad58685f24806cd*   
+MD5: *d30a2878a4ce2ec9fed00a71dbb7124c*   
+SHA1: *53a51af2513c8b0bf3ab91cf7c8653ba39cf86f7*   
 
 
 Appens rättigheter
@@ -37,6 +37,7 @@ Appen kräver dessa rättigheter:
 * INTERNET (Nerladdning av uppdateringar) 
 * WAKE_LOCK (Så inte telefonen går i viloläge när uppdatering laddas ned)
 * WRITE_EXTERNAL_STORAGE (För att lagra nedhämtade uppdateringen)
+* VIBRATE (För att kunna vibrera vid skapande av sms)
 
 
 Diskutera
