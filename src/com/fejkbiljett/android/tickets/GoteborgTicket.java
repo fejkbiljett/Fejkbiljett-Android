@@ -3,6 +3,7 @@ package com.fejkbiljett.android.tickets;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import android.os.Bundle;
 
@@ -85,12 +86,12 @@ public class GoteborgTicket extends Ticket {
 			{
 				if (bReduced) {
 					sPriceType = "SKOLUNGDOM";
-					sPrice = String.valueOf(redprice[i]);
-					sCode = Utils.getRandChars("s", 1); //fixme! (more reduced codes needed)
+					sPrice = String.format(new Locale("sv"), "%.2f", (float) redprice[i]);
+					sCode = Utils.getRandChars("s", 1); //FIXME! (more reduced codes needed)
 				}
 				else {
 					sPriceType = "VUXEN";
-					sPrice = String.valueOf(price[i]);
+					sPrice = String.format(new Locale("sv"), "%.2f", (float) price[i]);
 					sCode = Utils.getRandChars("veu", 1);
 				}
 			}
