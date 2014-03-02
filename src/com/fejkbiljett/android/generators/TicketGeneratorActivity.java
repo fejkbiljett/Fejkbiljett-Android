@@ -6,9 +6,14 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.media.AudioManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -26,6 +31,7 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 		implements ITicketGenerator, OnSharedPreferenceChangeListener {
 	protected String mCityName = "Fejkbiljett";
 
+	@SuppressWarnings("deprecation")
 	public void onGenerate() {
 		Ticket mTicket = getTicket();
 
@@ -86,6 +92,30 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 		
 		//Notification to user
 		Toast.makeText(getApplicationContext(), R.string.ticket_created, Toast.LENGTH_SHORT).show();
+		
+		//
+		if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+				"play_sound_vibrate", false)) {
+			AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
+			switch (am.getRingerMode()) {
+			case AudioManager.RINGER_MODE_SILENT:
+				//do nothing
+				break;
+			case AudioManager.RINGER_MODE_NORMAL:
+				Uri notif = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+				Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notif);
+				r.play();
+				//intentional fall-trough
+			case AudioManager.RINGER_MODE_VIBRATE:
+				if(am.shouldVibrate(AudioManager.VIBRATE_TYPE_NOTIFICATION)) {
+					//FIXME: Get the current vibrate pattern
+					long[] pattern = {0,250,250,250};
+					Vibrator v = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+					v.vibrate(pattern, -1);
+				}
+				break;
+			}
+		}
 		
 		finish(); //exit
 		}

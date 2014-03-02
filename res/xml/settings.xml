@@ -11,6 +11,11 @@
         android:key="open_sms_on_create"
         android:summary="@string/settings_opensmsoncreate_summary"
         android:title="@string/settings_opensmsoncreate" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="play_sound_vibrate"
+        android:summary="@string/settings_playsoundvibrate_summary"
+        android:title="@string/settings_playsoundvibrate" />
     <Preference
         android:key="sms_permission"
         android:summary="@string/settings_smspermission_summary"

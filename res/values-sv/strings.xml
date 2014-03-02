@@ -25,7 +25,10 @@
 	<string name="settings_opensmsoncreate">Öppna SMS-appen</string>
     <string name="settings_opensmsoncreate_summary">Öppna automatiskt din standard-smsapp när biljetten är skapad.</string>
     	
-	<string name="settings_smspermission">Ge rättighet att skriva SMS</string>
+	<string name="settings_playsoundvibrate">Spela ljud och vibrera</string>
+    <string name="settings_playsoundvibrate_summary">Spelar ljud och vibrerar enligt telefonens ljudinställningar.</string>
+    
+    <string name="settings_smspermission">Ge rättighet att skriva SMS</string>
 	<string name="settings_smspermission_summary">Sedan Android 4.4 (KitKat) behöver du ge Fejkbiljett rättighet att skriva till din sms-korg.</string>
 	
 	<string name="settings_update">Uppdatera Fejkbiljett</string>

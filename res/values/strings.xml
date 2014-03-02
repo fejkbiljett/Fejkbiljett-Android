@@ -27,6 +27,9 @@
     <string name="settings_opensmsoncreate">Open SMS app after create</string>
     <string name="settings_opensmsoncreate_summary">Opens your default SMS app when ticket has been created.</string>
     
+   	<string name="settings_playsoundvibrate">Play sound and vibrate</string>
+    <string name="settings_playsoundvibrate_summary">Will play sound and vibrate according to phone settings.</string>
+    
     <string name="settings_smspermission">Give write SMS permission</string>
 	<string name="settings_smspermission_summary">As of Android 4.4 (KitKat) Fejkbiljett needs permission to write to SMS store.</string>
 	
