@@ -75,7 +75,7 @@ public class FejkbiljettActivity extends SherlockListActivity
 			todayMidnight.setMinutes(0);
 			todayMidnight.setSeconds(0);
 			if(lastCheck.before(todayMidnight)) {
-				new SettingsActivity().update(getApplicationContext());
+				new SettingsActivity().checkVersion(getApplicationContext());
 			}				
 		}
 	}
@@ -121,7 +121,7 @@ public class FejkbiljettActivity extends SherlockListActivity
 		switch (item.getItemId()) {
 		case R.id.menuitem_update:
 			intent = new Intent(this, SettingsActivity.class);
-			intent.putExtra("update", true);
+			intent.putExtra("upgrade", true);
 			startActivity(intent);
 			return true;
 		case R.id.menuitem_settings:

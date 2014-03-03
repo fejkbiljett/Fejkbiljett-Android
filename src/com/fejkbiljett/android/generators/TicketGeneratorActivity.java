@@ -13,7 +13,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -126,7 +125,7 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 		switch (item.getItemId()) {
 		case R.id.menuitem_update:
 			intent = new Intent(this, SettingsActivity.class);
-			intent.putExtra("update", true);
+			intent.putExtra("upgrade", true);
 			startActivity(intent);
 			return true;
 		case R.id.menuitem_create:
@@ -173,7 +172,7 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 			todayMidnight.setMinutes(0);
 			todayMidnight.setSeconds(0);
 			if(lastCheck.before(todayMidnight)) {
-				new SettingsActivity().update(getApplicationContext());
+				new SettingsActivity().checkVersion(getApplicationContext());
 			}				
 		}	
 	}
