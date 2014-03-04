@@ -103,14 +103,18 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 			case AudioManager.RINGER_MODE_NORMAL:
 				Uri notif = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 				Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notif);
-				r.play();
+				if(r != null) {
+					r.play();
+				}
 				//intentional fall-trough
 			case AudioManager.RINGER_MODE_VIBRATE:
 				if(am.shouldVibrate(AudioManager.VIBRATE_TYPE_NOTIFICATION)) {
 					//FIXME: Get the current vibrate pattern
 					long[] pattern = {0,250,250,250};
 					Vibrator v = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-					v.vibrate(pattern, -1);
+					if(v != null) {
+						v.vibrate(pattern, -1);
+					}
 				}
 				break;
 			}
@@ -181,7 +185,11 @@ public abstract class TicketGeneratorActivity extends SherlockFragmentActivity
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getSupportMenuInflater();
 		inflater.inflate(R.menu.city, menu);
-		if(!SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
+		if(android.os.Build.VERSION.SDK_INT < 11) {
+			if(SettingsActivity.isVersionUpToDate(getApplicationContext())) {
+				menu.findItem(R.id.menuitem_update).setEnabled(false).setVisible(false);
+			}
+		} else if (!SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
 			menu.findItem(R.id.menuitem_update).setEnabled(false).setVisible(false);
 		}
 		return true;

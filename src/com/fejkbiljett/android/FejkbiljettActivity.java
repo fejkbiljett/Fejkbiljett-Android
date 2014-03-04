@@ -136,7 +136,11 @@ public class FejkbiljettActivity extends SherlockListActivity
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getSupportMenuInflater();
 		inflater.inflate(R.menu.main, menu);
-		if(!SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
+		if(android.os.Build.VERSION.SDK_INT < 11) {
+			if(SettingsActivity.isVersionUpToDate(getApplicationContext())) {
+				menu.findItem(R.id.menuitem_update).setEnabled(false).setVisible(false);
+			}
+		} else if (!SettingsActivity.markOutOfDate(getApplicationContext(), getActionBar())) {
 			menu.findItem(R.id.menuitem_update).setEnabled(false).setVisible(false);
 		}
 		return true;

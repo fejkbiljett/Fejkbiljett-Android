@@ -24,6 +24,7 @@ import android.os.Environment;
 import android.os.PowerManager;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 public class SettingsActivity extends PreferenceActivity {
@@ -118,7 +119,7 @@ public class SettingsActivity extends PreferenceActivity {
 		protected Void doInBackground(Void... params) {
 			populate();
 			versionUpToDate = latestVersionCode <= Utils.getVersionCode(context);
-			if(doUpgrade && !latestVersion.isEmpty() && !versionUpToDate)
+			if(doUpgrade && latestVersion.length() > 0 && !versionUpToDate)
 				localBinary = download(latestVersionURL);
 			return null;
 		}
@@ -159,9 +160,9 @@ public class SettingsActivity extends PreferenceActivity {
 			if(mProgressDialog != null) {
 				mProgressDialog.dismiss();
 			}
-			if(latestVersion.isEmpty()) {
+			if(latestVersion.length() <= 0) {
 				Toast.makeText(context, R.string.settings_version_cant_connect, Toast.LENGTH_LONG).show();
-			} else if (localBinary.isEmpty()) {
+			} else if (localBinary.length() <= 0) {
 				Editor editor = context.getSharedPreferences("version_check",Context.MODE_PRIVATE).edit();
 				
 				editor.putLong("latest_version_check", new Date().getTime());
@@ -205,7 +206,7 @@ public class SettingsActivity extends PreferenceActivity {
 					wl.release();
 				}
 			
-			if(str.isEmpty())
+			if(str.length() <= 0)
 			{
 				return;
 			}
@@ -226,7 +227,8 @@ public class SettingsActivity extends PreferenceActivity {
 	        wl.acquire();
 	        String filename = strUrl.substring(strUrl.lastIndexOf('/')+1);
 	        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
-			try {		
+			try {
+				//FIXME check if file exist and give up in that case, not nice to overwrite files silently
 				output = new FileOutputStream(path + "/" + filename);
 				URL url = new URL(strUrl);
 				urlConnection = (HttpsURLConnection) url.openConnection();
@@ -239,7 +241,7 @@ public class SettingsActivity extends PreferenceActivity {
 				publishProgress(total, fileLength);
 		        while((count = in.read(data)) != -1) {
 		        	if(isCancelled()) {
-		        		return null;
+		        		return "";
 		        	}
 		        	output.write(data, 0, count);
 		        	total += count;
@@ -250,8 +252,8 @@ public class SettingsActivity extends PreferenceActivity {
 		        }
 		
 				} catch (Exception e) {
-					e.printStackTrace();
-					return null;
+					Log.e("download", Log.getStackTraceString(e));
+					return "";
 				} finally {
 					if(urlConnection != null) {
 						urlConnection.disconnect();
@@ -260,8 +262,7 @@ public class SettingsActivity extends PreferenceActivity {
 						try {
 							output.close();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							Log.e("download", Log.getStackTraceString(e));
 						}
 					}
 					wl.release();						
