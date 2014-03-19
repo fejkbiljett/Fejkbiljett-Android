@@ -52,6 +52,6 @@ Donera
 ------
 
 Skänk en slant:
-* Bitcoin: 1APd2FhtchWeBD8ME8ZqRk9jMExU9svTsN 
+* Bitcoin: 15KTrMTKET1B8ggvFiLU6p3uQEm5PkSZZk 
 * Litecoin: Lbd9SFKhv3SPK5aZ2RAugpffFGpMku351c
 * http://www.lakareutangranser.se/ge-gava/privatperson
