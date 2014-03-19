@@ -3,112 +3,73 @@ package com.fejkbiljett.android.generators;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 
-import com.fejkbiljett.android.FragmentAdapter;
 import com.fejkbiljett.android.R;
+import com.fejkbiljett.android.tickets.UppsalaTicket;
 import com.fejkbiljett.android.tickets.Ticket;
-import com.viewpagerindicator.TabPageIndicator;
 
 public class UppsalaActivity extends TicketGeneratorActivity {
-	protected ViewPager mPager;
-	protected FragmentAdapter mAdapter;
-	
-	int ticket_type = 0;
-
 	public void onCreate(Bundle savedInstanceState) {
-		mCityName = "Uppsala";
-		
 		setContentView(R.layout.ticket_uppsala);
+
+		mCityName = "Uppsla";
+
 		super.onCreate(savedInstanceState);
-		
-		mPager = (ViewPager) findViewById(R.id.pager);
-		mAdapter = new FragmentAdapter(
-				getSupportFragmentManager());
-		mPager.setAdapter(mAdapter);
-
-		mAdapter.addPage("Stadsbussar", new UppsalaFragment());
-		mAdapter.addPage("Regiontrafik", new UppsalaRegionFragment());
-
-		TabPageIndicator pi = (TabPageIndicator) findViewById(R.id.indicator);
-		pi.setViewPager(mPager);
-
-		/*
-		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-
-		if (prefs.getBoolean("price_reduced", false)) {
-			((RadioButton) findViewById(R.id.price_reduced)).setChecked(true);
-		}
-		if (prefs.getBoolean("price_reduced_region", false)) {
-			((RadioButton) findViewById(R.id.price_reduced_region))
-					.setChecked(true);
-		}
-
-		String zone = prefs.getString("zone", "");
-		if (zone.equals("urban")) {
-			((RadioButton) findViewById(R.id.region_zone_urban))
-					.setChecked(true);
-		} else if (zone.equals("1")) {
-			((RadioButton) findViewById(R.id.region_zone_1)).setChecked(true);
-		} else if (zone.equals("2")) {
-			((RadioButton) findViewById(R.id.region_zone_2)).setChecked(true);
-		} else if (zone.equals("2p")) {
-			((RadioButton) findViewById(R.id.region_zone_2p)).setChecked(true);
-		} else if (zone.equals("12")) {
-			((RadioButton) findViewById(R.id.region_zone_12)).setChecked(true);
-		} else if (zone.equals("12p")) {
-			((RadioButton) findViewById(R.id.region_zone_12p)).setChecked(true);
-		} else if (zone.equals("p")) {
-			((RadioButton) findViewById(R.id.region_zone_p)).setChecked(true);
-		} else if (zone.equals("ulsl")) {
-			((RadioButton) findViewById(R.id.region_zone_ulsl))
-					.setChecked(true);
-		} else if (zone.equals("bike")) {
-			((RadioButton) findViewById(R.id.region_zone_bike))
-					.setChecked(true);
-		}
-		*/
 	}
 
-	@Override
 	public Bundle getParams() {
-		return ((ITicketGenerator) mAdapter.getItem(mPager.getCurrentItem())).getParams();
+		Bundle data = new Bundle();
 
-		/*
-		Editor editor = getPreferences(MODE_PRIVATE).edit();
-
-		boolean bReduced = false;
-		switch (ticket_type) {
-		case 0:
-			
-			break;
-		case 1:
-			bReduced = ((RadioButton) findViewById(R.id.price_reduced_region))
-					.isChecked();
-
-			String zone;
-			
-
-			editor.putString("zone", zone);
-			data.putString("zone", zone);
-			break;
+		boolean bReduced;
+		if (((RadioButton) findViewById(R.id.price_reduced)).isChecked()) {
+			bReduced = true;
+		} else {
+			bReduced = false;
 		}
 
-		editor.putBoolean("price_reduced_region", bReduced);
-		data.putBoolean("price_reduced", bReduced);
-		editor.commit();
+		boolean bZone1 = ((CheckBox) findViewById(R.id.zone_1)).isChecked();
+		boolean bZone2 = ((CheckBox) findViewById(R.id.zone_2)).isChecked();
+		boolean bZone3 = ((CheckBox) findViewById(R.id.zone_3)).isChecked();
+		boolean bZone4 = ((CheckBox) findViewById(R.id.zone_4)).isChecked();
+		boolean bZone5 = ((CheckBox) findViewById(R.id.zone_5)).isChecked();
+		
+		boolean bZoneSLABC = ((CheckBox) findViewById(R.id.zone_slabc)).isChecked();
+		boolean bZoneSLC = ((CheckBox) findViewById(R.id.zone_slc)).isChecked();
 
+		data.putBoolean("price_reduced", bReduced);
+
+		data.putBoolean("zone_1", bZone1);
+		data.putBoolean("zone_2", bZone2);
+		data.putBoolean("zone_3", bZone3);
+		data.putBoolean("zone_4", bZone4);
+		data.putBoolean("zone_5", bZone5);
+		
+		data.putBoolean("zone_slabc", bZoneSLABC);
+		data.putBoolean("zone_slc", bZoneSLC);
+		
 		return data;
-		*/
 	}
-	
+
 	@Override
 	protected void onResume() {
 		super.onResume();
 		
 		SharedPreferences prefs = getPreferences(MODE_PRIVATE);
-		
-		mPager.setCurrentItem(prefs.getInt("tab_position", 0));
+
+		((RadioButton) findViewById(R.id.price_reduced))
+			.setChecked(prefs.getBoolean("price_reduced", false));
+
+		((CheckBox) findViewById(R.id.zone_1)).setChecked(prefs.getBoolean("zone_1", false));
+		((CheckBox) findViewById(R.id.zone_2)).setChecked(prefs.getBoolean("zone_2", false));
+		((CheckBox) findViewById(R.id.zone_3)).setChecked(prefs.getBoolean("zone_3", false));
+		((CheckBox) findViewById(R.id.zone_4)).setChecked(prefs.getBoolean("zone_4", false));
+		((CheckBox) findViewById(R.id.zone_5)).setChecked(prefs.getBoolean("zone_5", false));
+
+		((CheckBox) findViewById(R.id.zone_slabc)).setChecked(prefs.getBoolean("zone_slabc", false));
+		((CheckBox) findViewById(R.id.zone_slc)).setChecked(prefs.getBoolean("zone_slc", false));
+
 	}
 
 	@Override
@@ -116,14 +77,24 @@ public class UppsalaActivity extends TicketGeneratorActivity {
 		super.onPause();
 		
 		Editor editor = getPreferences(MODE_PRIVATE).edit();
+		Bundle data = getParams();
 		
-		editor.putInt("tab_position", mPager.getCurrentItem());
+		editor.putBoolean("price_reduced", data.getBoolean("price_reduced"));
+		
+		editor.putBoolean("zone_1", data.getBoolean("zone_1"));
+		editor.putBoolean("zone_2", data.getBoolean("zone_2"));
+		editor.putBoolean("zone_3", data.getBoolean("zone_3"));
+		editor.putBoolean("zone_4", data.getBoolean("zone_4"));
+		editor.putBoolean("zone_5", data.getBoolean("zone_5"));
+
+		editor.putBoolean("zone_slabc", data.getBoolean("zone_slabc"));
+		editor.putBoolean("zone_slc", data.getBoolean("zone_slc"));
 
 		editor.commit();
 	}
 
 	@Override
 	public Ticket getTicket() {
-		return ((ITicketGenerator) mAdapter.getItem(mPager.getCurrentItem())).getTicket();
+		return new UppsalaTicket();
 	}
 }

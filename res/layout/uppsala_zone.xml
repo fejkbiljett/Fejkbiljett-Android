@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout4"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:text="@string/label_zone"
+        android:textAppearance="?android:attr/textAppearanceSmall" >
+    </TextView>
+
+    <CheckBox
+        android:id="@+id/zone_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="1" >
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/zone_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2" >
+    </CheckBox>
+
+    <CheckBox
+        android:id="@+id/zone_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3" >
+    </CheckBox>
+    
+    <CheckBox
+        android:id="@+id/zone_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4" >
+    </CheckBox>
+    
+    <CheckBox
+        android:id="@+id/zone_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5" >
+    </CheckBox>
+    
+    <CheckBox
+        android:id="@+id/zone_slabc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SL ABC" >
+    </CheckBox>
+    
+    <CheckBox
+        android:id="@+id/zone_slc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SL C" >
+    </CheckBox>
+
+</LinearLayout>
