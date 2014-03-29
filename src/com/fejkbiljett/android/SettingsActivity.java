@@ -172,7 +172,11 @@ public class SettingsActivity extends PreferenceActivity {
 				
 				editor.commit();
 
-				if(versionUpToDate) {
+				/* Only show toast if pressed in system settings (doUpgrade).
+				 * TODO: Smarter way to show toast, check if application is showing
+				 * the sms-program, in that case, dont show toast.
+				 */
+				if(versionUpToDate && doUpgrade) {
 					Toast.makeText(context, R.string.settings_version_up_to_date, Toast.LENGTH_LONG).show();
 				} 
 			} else {
