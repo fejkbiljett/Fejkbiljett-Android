@@ -5,7 +5,7 @@ Fejkbiljett är en Android-applikation som skapar biljetter som *liknar* äkta s
 
 För närvarande stöds följande städer:
 * Stockholm (SL, alla zoner inklusive länsöverskridande biljetter)
-* Uppsala (UL, lokal och regional trafik, inklusive kombinationsbijetter med SL)
+* Uppsala (UL, alla zoner inklusive kombinationsbijetter med SL)
 * Göteborg (Göteborg stadstrafik, Göteborg+, Göteborg++, Göteborg+++ samt Kungälv)
 * Västerås (Stadstrafik)
 * Örebro (Stadstrafik)
@@ -20,12 +20,12 @@ Att använda Fejkbiljett för att olovligen åka i kollektivtrafiken är att bet
 Ladda ned
 ---------
 
-**Fejkbiljett 0.16** går att ladda ned här:
+**Fejkbiljett 0.17** går att ladda ned här:
 
-https://github.com/Olangu/Fejkbiljett-Android/raw/master/releases/Fejkbiljett0.16.apk
+https://github.com/Olangu/Fejkbiljett-Android/raw/master/releases/Fejkbiljett0.17.apk
 
-MD5: *31e97ac7b982385c04ccb7be156f5e50*   
-SHA1: *25a69fc934468ee8750019eeaeb474829fc2942f*   
+MD5: *af26a5a82ef7df7142678a2c56fa3591*   
+SHA1: *baf1955ac94c58dd091680fe480579f27c749195*   
 
 
 Appens rättigheter
