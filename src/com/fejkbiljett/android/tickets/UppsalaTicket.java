@@ -26,7 +26,7 @@ public class UppsalaTicket extends Ticket {
 	protected int[] mSLcPrice = { 20, 15, 10 };
 	protected int[] mRedSLcPrice = { 10, 10, 5 };
 	
-	protected int[] mSLabcPrice = { 50, 40, 30, 30, 25 };
+	protected int[] mSLabcPrice = { 50, 40, 35, 30, 25 };
 	protected int[] mRedSLabcPrice = { 25, 20, 20, 15, 15 };
 	
 	@Override
@@ -35,9 +35,10 @@ public class UppsalaTicket extends Ticket {
 				
 				+ (mReduced ? "U" : "V") + mZones + " " + mPriceType + " "
 				+ "Giltig till " + mValidTime + " " + mValidDate + "\n"
-				+ "Stadsbuss" + "\n\n"
+				+ "UL zon " + mZones.replaceAll("SL$", "SLABC").replaceAll("SL", " + SL ") + "\n\n"
 				
-				+ mPrice + " SEK (6% MOMS) " + uCode + "\n\n"
+				+ mPrice + " SEK (6% MOMS)\n" 
+				+ uCode + "\n\n"
 				
 				+ uScanCode;
 	}
