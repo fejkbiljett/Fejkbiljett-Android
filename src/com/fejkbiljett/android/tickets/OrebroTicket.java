@@ -25,7 +25,8 @@ public class OrebroTicket extends Ticket {
 				+ "Giltig till " + mValidTime + " " + mValidDate + "\n"
 				+ "Örebro" + "\n\n"
 				
-				+ mPrice + " SEK (6% MOMS) " + uCode + "\n\n"
+				+ mPrice + " SEK (6% MOMS)\n"
+				+ uCode + "\n\n"
 				
 				+ uScanCode;
 	}
