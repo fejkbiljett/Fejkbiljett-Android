@@ -30,10 +30,10 @@ public class StockholmTicket extends Ticket {
 
 				+ sScanCode + "\n\n"
 				
-				+ "SL biljett giltig till " + mTime + ", " + mDate + "\n"
+				+ "SL biljett giltig till " + mTime + " " + mDate + "\n"
 				+ sPriceText + " " + iPrice + " kr ink 6% moms\n"				
 				+ sCode.substring(0, 6) + " " + sCode.substring(6) + "\n"
-				+ "m.sl.se";
+				+ "sl.se";
 	}
 
 	@Override

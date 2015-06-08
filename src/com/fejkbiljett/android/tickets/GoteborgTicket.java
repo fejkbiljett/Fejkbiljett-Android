@@ -11,8 +11,8 @@ import com.fejkbiljett.android.Utils;
 
 public class GoteborgTicket extends Ticket {
 	final String zones[] = {"gbg", "gbg+", "gbg++", "gbg+++", "kalv"};
-	final int    price[] = {25,    49,      60,      93,      25};
-	final int redprice[] = {19,    37,      46,      70,      10};  
+	final int    price[] = {26,    50,      62,      96,      26};
+	final int redprice[] = {20,    39,      47,      72,      20};  
 	
 	final String unknownCode[] = { 	"4U", //2014-01-11 
 									"9Q", //2014-01-08
