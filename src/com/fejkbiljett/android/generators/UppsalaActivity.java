@@ -14,7 +14,7 @@ public class UppsalaActivity extends TicketGeneratorActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.ticket_uppsala);
 
-		mCityName = "Uppsla";
+		mCityName = "Uppsala";
 
 		super.onCreate(savedInstanceState);
 	}
