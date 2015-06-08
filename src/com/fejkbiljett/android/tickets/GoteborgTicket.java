@@ -17,7 +17,7 @@ public class GoteborgTicket extends Ticket {
 	final String unknownCode[] = { 	"4U", //2014-01-11 
 									"9Q", //2014-01-08
 									"4B", //2013-12-26 
-									"7D", //2013-12-23
+									"7D", //2013-12-23, 2015-04-07
 									"6M", //2011-06-30
 									"3V", //2011-06-04
 									"5V", //2011-05-16
@@ -108,15 +108,15 @@ public class GoteborgTicket extends Ticket {
 					break;
 				case 1:
 					sCode = Utils.getRandChars("gG", 1) + Utils.getRandChars("sS", 1) + sCode;
-					sPriceStr =  pluses + " " + sPriceStr.replace("området ", "") + "s kommun " + pluses;	
+					sPriceStr =  pluses + " " + sPriceStr + " " + pluses;
 					break;
 				case 2:
-					sCode = Utils.getRandChars("uU", 1) + Utils.getRandChars("sS", 1) + sCode;
-					sPriceStr =  pluses + " " + sPriceStr.replace("området ", "") + "s kommun " + pluses;	
+					sCode = Utils.getRandChars("pP", 1) + Utils.getRandChars("lL", 1) + sCode; //As of a real ticket 2015-04-07
+					sPriceStr =  pluses + " " + sPriceStr + " " + pluses;
 					break;
 				case 3:
 					sCode = Utils.getRandChars("uU", 1) + Utils.getRandChars("sS", 1) + sCode;
-					sPriceStr =  pluses + " " + sPriceStr.replace("området ", "") + "s kommun " + pluses;	
+					sPriceStr =  pluses + " " + sPriceStr + " " + pluses;
 					break;
 				default:
 					//nothing
