@@ -30,17 +30,18 @@ public class FejkbiljettActivity extends SherlockListActivity
 	Class[] classes = { StockholmActivity.class, 
 						//UmeaActivity.class, 
 						//UppsalaActivity.class,
-                        GoteborgActivity.class, 
+                        GoteborgActivity.class 
                         //JonkopingActivity.class,
                 		//VasterasActivity.class,
-                		//OrebroActivity.class};
+                		//OrebroActivity.class
+                        };
 	
 
 	Integer[] images = new Integer[] { R.drawable.stockholm,
 									   //R.drawable.umea,
 									   //R.drawable.jonkoping,
 									   //R.drawable.uppsala,
-									   R.drawable.goteborg,
+									   R.drawable.goteborg
 									   //R.drawable.vasteras,
 									   //R.drawable.orebro
 									   };
