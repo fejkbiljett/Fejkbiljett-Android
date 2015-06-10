@@ -22,7 +22,7 @@ Ladda ned
 https://github.com/Olangu/Fejkbiljett-Android/raw/master/releases/Fejkbiljett0.18.apk
 
 MD5: *4c38957fe751bb7a5bb5d035b9b78e27*   
-SHA1: *ae6cb5d04e9dd64bd8f9b2938f8dd4671800ffdc   
+SHA1: *ae6cb5d04e9dd64bd8f9b2938f8dd4671800ffdc*   
 
 
 Appens rättigheter
