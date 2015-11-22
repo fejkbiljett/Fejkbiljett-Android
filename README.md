@@ -49,5 +49,5 @@ Donera
 ------
 
 Skänk en slant:
-* Bitcoin: 15KTrMTKET1B8ggvFiLU6p3uQEm5PkSZZk 
-* http://www.lakareutangranser.se/ge-gava/privatperson
+* Bitcoin: 16GVwkAQVLsZ5j7AMkf61u1ofUaYnRnzLF
+* https://www.cancerfonden.se/stod-oss/ge-en-gava
