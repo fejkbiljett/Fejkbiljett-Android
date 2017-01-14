@@ -9,9 +9,7 @@ import android.os.Bundle;
 import com.fejkbiljett.android.Utils;
 
 public class StockholmTicket extends Ticket {
-	private int[] gPrices = new int[] { 36, 54, 72, 36 };
-
-	private double gPriceMod = 0.55;
+	private int[] gPrices = new int[] { 43, 29 };
 
 	protected String mSender;
 
@@ -26,7 +24,7 @@ public class StockholmTicket extends Ticket {
 	@Override
 	public String getMessage() {
 		return
-				sPriceType + "-" + mZones + " " + mTime + " " + sCodeTail + "\n\n"
+				sPriceType + mZones + " " + mTime + " " + sCodeTail + "\n\n"
 
 				+ sScanCode + "\n\n"
 				
@@ -43,7 +41,7 @@ public class StockholmTicket extends Ticket {
 
 	@Override
 	public String getMessageOut() {
-		return (mReduced ? "R" : "H") + mZones;
+		return (mReduced ? "rab" : "vux");
 	}
 
 	@Override
@@ -58,29 +56,7 @@ public class StockholmTicket extends Ticket {
 
 		mReduced = data.getBoolean("price_reduced");
 
-		if (data.getBoolean("zone_a"))
-			mZones += "A";
-		if (data.getBoolean("zone_b"))
-			mZones += "B";
-		if (data.getBoolean("zone_c"))
-			mZones += "C";
-		if (data.getBoolean("zone_l"))
-			mZones += "L";
-
-		if (mZones.contentEquals("")) {
-			throw new TicketException("Fyll i vilka zoner du vill åka i.");
-		} else if (mZones.startsWith("AC")) {
-			//Don't do more than the user asks.
-			//mZones = "ABC" + (data.getBoolean("zone_l") ? "L" : "");
-			throw new TicketException("Felaktig zonkombination.");
-		}
-
-		if (mZones.equals("AL") || mZones.equals("BL") || mZones.equals("ABL")) {
-			throw new TicketException(
-					"Ogiltig kombination med Länsgränspassage.");
-		}
-
-		boolean twohours = mZones.startsWith("ABC") || mZones.endsWith("L");
+		boolean twohours = false;
 
 		// Date and time
 		mTimeNow = new SimpleDateFormat("HHmm").format(now.getTime());
@@ -90,21 +66,15 @@ public class StockholmTicket extends Ticket {
 		mTime = new SimpleDateFormat("HH:mm").format(cal.getTime());
 		mDate = new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime());
 
-		if (mZones.equals("L")) {
-			iPrice = gPrices[3];
-		} else if (data.getBoolean("zone_l")) {
-			iPrice = gPrices[mZones.length() - 2] + gPrices[3];
-		} else {
-			iPrice = gPrices[mZones.length() - 1];
-		}
-
+		iPrice = gPrices[0];
+		
 		if (mReduced) {
-			sPriceType = "R";
-			sPriceText = "Red pris";
-			iPrice = (int) Math.ceil(iPrice * gPriceMod);
+			sPriceType = "RAB";
+			sPriceText = "Rabbaterad";
+			iPrice = gPrices[1];
 		} else {
-			sPriceType = "H";
-			sPriceText = "Helt pris";
+			sPriceType = "VUX";
+			sPriceText = "Vuxen";
 		}
 		
 		sCode = Utils.generateNumberSequence();
