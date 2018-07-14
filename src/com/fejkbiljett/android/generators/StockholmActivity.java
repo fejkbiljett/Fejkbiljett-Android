@@ -29,17 +29,7 @@ public class StockholmActivity extends TicketGeneratorActivity {
 			bReduced = false;
 		}
 
-		boolean bZoneA = ((CheckBox) findViewById(R.id.zone_a)).isChecked();
-		boolean bZoneB = ((CheckBox) findViewById(R.id.zone_b)).isChecked();
-		boolean bZoneC = ((CheckBox) findViewById(R.id.zone_c)).isChecked();
-		boolean bZoneL = ((CheckBox) findViewById(R.id.zone_l)).isChecked();
-		
 		data.putBoolean("price_reduced", bReduced);
-
-		data.putBoolean("zone_a", bZoneA);
-		data.putBoolean("zone_b", bZoneB);
-		data.putBoolean("zone_c", bZoneC);
-		data.putBoolean("zone_l", bZoneL);
 
 		return data;
 	}
@@ -52,18 +42,6 @@ public class StockholmActivity extends TicketGeneratorActivity {
 		if (prefs.getBoolean("price_reduced", false)) {
 			((RadioButton) findViewById(R.id.price_reduced)).setChecked(true);
 		}
-
-		((CheckBox) findViewById(R.id.zone_a)).setChecked(prefs.getBoolean("zone_a", false));
-		
-		if (prefs.getBoolean("zone_b", false)) {
-			((CheckBox) findViewById(R.id.zone_b)).setChecked(true);
-		}
-		if (prefs.getBoolean("zone_c", false)) {
-			((CheckBox) findViewById(R.id.zone_c)).setChecked(true);
-		}
-		if (prefs.getBoolean("zone_l", false)) {
-			((CheckBox) findViewById(R.id.zone_l)).setChecked(true);
-		}
 	}
 
 	@Override
@@ -74,12 +52,7 @@ public class StockholmActivity extends TicketGeneratorActivity {
 		Bundle data = getParams();
 		
 		editor.putBoolean("price_reduced", data.getBoolean("price_reduced"));
-		
-		editor.putBoolean("zone_a", data.getBoolean("zone_a"));
-		editor.putBoolean("zone_b", data.getBoolean("zone_b"));
-		editor.putBoolean("zone_c", data.getBoolean("zone_c"));
-		editor.putBoolean("zone_l", data.getBoolean("zone_l"));
-
+	
 		editor.commit();
 	}
 

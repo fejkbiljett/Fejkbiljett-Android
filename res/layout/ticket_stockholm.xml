@@ -18,15 +18,6 @@
             android:layout_height="wrap_content"
             layout="@layout/inc_price" >
         </include>
-
-        <!-- Zone -->
-
-        <include
-            android:id="@+id/linearLayout4_ref"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/stockholm_zone" >
-        </include>
     </LinearLayout>
 
 </ScrollView>

@@ -18,7 +18,7 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.fejkbiljett.android.generators.StockholmActivity;
 //import com.fejkbiljett.android.generators.UppsalaActivity;
-import com.fejkbiljett.android.generators.GoteborgActivity;
+//import com.fejkbiljett.android.generators.GoteborgActivity;
 //import com.fejkbiljett.android.generators.VasterasActivity;
 //import com.fejkbiljett.android.generators.OrebroActivity;
 //import com.fejkbiljett.android.generators.UmeaActivity;
@@ -30,7 +30,7 @@ public class FejkbiljettActivity extends SherlockListActivity
 	Class[] classes = { StockholmActivity.class, 
 						//UmeaActivity.class, 
 						//UppsalaActivity.class,
-                        GoteborgActivity.class 
+                        //GoteborgActivity.class 
                         //JonkopingActivity.class,
                 		//VasterasActivity.class,
                 		//OrebroActivity.class
@@ -41,7 +41,7 @@ public class FejkbiljettActivity extends SherlockListActivity
 									   //R.drawable.umea,
 									   //R.drawable.jonkoping,
 									   //R.drawable.uppsala,
-									   R.drawable.goteborg
+									   //R.drawable.goteborg
 									   //R.drawable.vasteras,
 									   //R.drawable.orebro
 									   };

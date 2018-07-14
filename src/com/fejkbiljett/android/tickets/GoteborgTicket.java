@@ -14,7 +14,8 @@ public class GoteborgTicket extends Ticket {
 	final int    price[] = {26,    50,      62,      96,      26};
 	final int redprice[] = {20,    39,      47,      72,      20};  
 	
-	final String unknownCode[] = { 	"4U", //2014-01-11 
+	final String unknownCode[] = { 	"2T", //2015-11-21
+									"4U", //2014-01-11 
 									"9Q", //2014-01-08
 									"4B", //2013-12-26 
 									"7D", //2013-12-23, 2015-04-07
@@ -87,7 +88,7 @@ public class GoteborgTicket extends Ticket {
 				if (bReduced) {
 					sPriceType = "SKOLUNGDOM";
 					sPrice = String.format(new Locale("sv"), "%.2f", (float) redprice[i]);
-					sCode = Utils.getRandChars("s", 1); //FIXME! (more reduced codes needed)
+					sCode = Utils.getRandChars("smd", 1);
 				}
 				else {
 					sPriceType = "VUXEN";
@@ -115,7 +116,8 @@ public class GoteborgTicket extends Ticket {
 					sPriceStr =  pluses + " " + sPriceStr + " " + pluses;
 					break;
 				case 3:
-					sCode = Utils.getRandChars("uU", 1) + Utils.getRandChars("sS", 1) + sCode;
+					//sCode = Utils.getRandChars("uU", 1) + Utils.getRandChars("sS", 1) + sCode;
+					sCode = Utils.getRandChars("pP", 1) + Utils.getRandChars("uUpP", 1) + sCode; //As of real reduced tickets 2015-11-21
 					sPriceStr =  pluses + " " + sPriceStr + " " + pluses;
 					break;
 				default:
